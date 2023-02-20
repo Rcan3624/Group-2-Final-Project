@@ -16,8 +16,9 @@ a:link{
     margin-right:30px;
     position:relative;
     
+    
 }
-li{
+nav li{
     text-align: right; 
      font-size: 1em; 
      direction: rtl;
@@ -25,4 +26,8 @@ li{
     list-style-type: none;
     
     
+}
+
+.lefty{
+    text-align: left;
 }
