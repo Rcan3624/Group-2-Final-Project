@@ -2,9 +2,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="test.js"></script>
+  <script src="../test.js"></script>
   <title>Sunnydale Community College</title>
 </head>
 <!-- This just a placeholder page while we develop the actual page according to the document-->
@@ -15,7 +15,7 @@
 
   <nav>
      <ul>
-      <li><a href="">Student Login</a></li>
+      <li><a href="login.html">Student Login</a></li>
       <li><a href="">Teacher Login</a></li>
     </ul>
     <a href="index.html">Home</a>
@@ -27,12 +27,16 @@
   </nav>
 
 <div>
-  <h1>Degrees</h1>
-
-  <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus beatae delectus ipsa reiciendis optio asperiores dolor, 
-    rerum veniam ipsum voluptatem nemo doloremque sit, ab perspiciatis distinctio. Sequi repellat nesciunt dolorum.
-  <a href="course_list.html">Available Courses</a>
-  </h2>
+  <h1>Sign in</h1>
+  <form method="post">
+    <label for="myName">*Name:</label>
+    <input type="text" name="myName" id="myName"
+           required="required">
+    <label for="myEmail">*E-mail:</label>
+    <input type="text" name="myEmail" id="myEmail"
+           required="required">
+    
+  </form>
 </div>
 
   <img src="NicePng_under-construction-png_1526179.png" alt="Under Construction">
