@@ -1,170 +1,220 @@
+<!doctype html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="../test.js"></script>
-  <title>Sunnydale Community College</title>
-</head>
-<!-- This just a placeholder page while we develop the actual page according to the document-->
-<!-- Feel free to change and restructure anything -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="../test.js"></script>
 
-  <div></div>
+    <title>Sundaydale Community College</title>
+  </head>
+  <body class="body">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+      <a class="navbar-brand" href="index.html"><img src="/images/logo.jpeg" alt="SCC Logo" width="50" height="50"class="rounded-pill"></a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <nav>
-    <ul>
-      <li><a href="login.html">Student Login</a></li>
-      <li><a href="login.html">Teacher Login</a></li>
-    </ul>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="degrees.html">Degrees</a>
-    <a href="admission.html">Admission</a>
-    <a href="faq.html">FAQ</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <!--
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="admission.html">Admission</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="degrees.html">Degrees</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Student Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Teacher Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="faq.html">FAQ</a>
+              </li>
+            <!--
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Degrees
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="Nursing.html">Nursing</a>
+                <a class="dropdown-item" href="#">Degree 2</a>
+                <a class="dropdown-item" href="#">Degree 3</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>          
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+            -->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      <h1 class="h1 mb-5">Available Courses</h1>
+      
+      <div class="d-flex justify-content-center">
+      <div class="list-group float-md-left mx-4">
+      <h5>Anthropology</h5>
+      <ul>
+        <li>Evolutionary Anthropology</li>
+        <li>Social Anthropology</li>
+        <li>Public Anthropology</li>
+        <li>Feminist Anthropology</li>
+        <li>Social Anthropology</li>
+        <li>Urban Anthropology</li>
+        <li>Biocultural Anthropology</li>
+      </ul>
+      
+      <h5>Engineering</h5>
+      <ul>
+        <li>Ceramic Engineering</li>
+        <li>Industrial Engineering</li>
+      </ul>
 
-  </nav>
+      <h5>Media</h5>
+      <ul>
+        <li>Visual Communication Design</li>
+        <li>Mass Communication</li>
+        <li>Propaganda</li>
+      </ul>
 
-  <div>
-    <h1>Home</h1>
+      <h5>Science</h5>
+      <ul>
+        <li>Paleobiology</li>
+        <li>Science Policy</li>
+        <li>Stellar Nucleosynthesis</li>
+        <li>Sociology of Science</li>
+        <li>Biology</li>
+        <li>Geochemistry</li>
+        <li>Chemical Physics</li>
+        <li>Paleoclimatology</li>
+        <li>Science and Technology Studies</li>
+        <li>Green Chemistry</li>
+        <li>Climatology</li>
+        <li>Classical Physics</li>
+      </ul>
+      </div>
 
-    <h2>Homepage place holder</h2>
-  </div>
-<div>
-    <h2>Available Courses</h2>
-<ul>
-    <h3>Anthropology</h3>
-<li>Evolutionary Anthropology</li>
-<li>Social Anthropology</li>
-<li>Public Anthropology</li>
-<li>Feminist Anthropology</li>
-<li>Social Anthropology</li>
-<li>Urban Anthropology</li>
-<li>Biocultural Anthropology</li>
+      <div class="list-group float-md-left mx-4"">
+      <h5>Medical</h5>
+      <ul>
+        <li>Dentistry</li>
+        <li>Organology</li>
+        <li>Sociology of Autism</li>
+        <li>Pharmacy</li>
+        <li>Sports Medicine</li>
+      </ul>
+      
+      <h5>Education</h5>
+      <ul>
+        <li>Elementary Education</li>
+        <li>Peace Education</li>
+      </ul>
 
+        <h5>Business</h5>
+        <ul>
+          <li>International Trade</li>
+        </ul>
+        <h5>Civics</h5>
+      <ul>
+        <li>Religions of East Asia</li>
+      </ul>
 
-    <h3>Engineering</h3>
-<li>Ceramic Engineering</li>
-<li>Industrial Engineering</li>
+        <h5>Social Science</h5>
+      <ul>
+        <li>Jewish Studies</li>
+        <li>Jain Studies</li>
+        <li>Urban Studies</li>
+        <li>Central Asian Studies</li>
+        <li>Public Economics</li>
+        <li>Women's Studies</li>
+        <li>Philosophy of Action</li>
+        <li>Leisure Studies</li>
+        <li>Jealousy Sociology</li>
+        <li>Sociology of Motherhood</li>
+        <li>Social Philosophy</li>
+        <li>Computational Sociology</li>
+        <li>Sociology of Disaster</li>
+      </ul>
+        </div>
 
-
-
-
-
-
-    <h3>Media</h3>
-<li>Visual Communication Design</li>
-<li>Mass Communication</li>
-<li>Propaganda</li>
-
-
-
-
-
-    <h3>Science</h3>
-<li>Paleobiology</li>
-<li>Science Policy</li>
-<li>Stellar Nucleosynthesis</li>
-<li>Sociology of Science</li>
-<li>Biology</li>
-<li>Geochemistry</li>
-<li>Chemical Physics</li>
-<li>Paleoclimatology</li>
-<li>Science and Technology Studies</li>
-<li>Green Chemistry</li>
-<li>Climatology</li>
-<li>Classical Physics</li>
-
-
-    <h3>Medical</h3>
-<li>Dentistry</li>
-<li>Organology</li>
-<li>Sociology of Autism</li>
-<li>Pharmacy</li>
-<li>Sports Medicine</li>
-
-
-
-    <h3>Education</h3>
-<li>Elementary Education</li>
-<li>Peace Education</li>
-
-
-    <h3>Business</h3>
-<li>International Trade</li>
-
-
-
-    <h3>pyschology</h3>
-<li>Educational Psychology</li>
-<li>Speech Communication</li>
-<li>Quantitative Psychology</li>
-<li>Parapsychology</li>
-<li>Social Development</li>
-
-
-    <h3>Law</h3>
-<li>Federal Law</li>
-<li>Islamic Law</li>
-
-
-
-    <h3>English</h3>
-<li>Fiction Creative Writing</li>
-<li>Technical Writing</li>
-<li>History of Literature</li>
-
-
-
-    <h3>math</h3>
-<li>Algebraic Computation</li>
-<li>Computational Number Theory</li>
-
-
-
-    <h3>History</h3>
-<li>History and Politics</li>
-<li>Latin American History</li>
-<li>Nigerian History</li>
-<li>Canadian History</li>
-<li>Mongolian History</li>
-
-
-    <h3>Civics</h3>
-<li>Religions of East Asia</li>
-
-
-
-
-    <h3>Social Science</h3>
-<li>Jewish Studies</li>
-<li>Jain Studies</li>
-<li>Urban Studies</li>
-<li>Central Asian Studies</li>
-<li>Public Economics</li>
-<li>Women's Studies</li>
-<li>Philosophy of Action</li>
-<li>Leisure Studies</li>
-<li>Jealousy Sociology</li>
-<li>Sociology of Motherhood</li>
-<li>Social Philosophy</li>
-<li>Computational Sociology</li>
-<li>Sociology of Disaster</li>
-
-
-
-    <h3>Art</h3>
-<li>Interior Design</li>
-<li>Music Education</li>
-<li>Orchestral Studies</li>
-<li>Music Studies</li>
-<li>Systematic Musicology</li>
-</ul>
-</div>
+        <div class="list-group float-md-left mx-4">
+        <h5>pyschology</h5>
+        <ul>
+          <li>Educational Psychology</li>
+          <li>Speech Communication</li>
+          <li>Quantitative Psychology</li>
+          <li>Parapsychology</li>
+          <li>Social Development</li>
+        </ul>
+        
+      <h5>Law</h5>
+      <ul>
+        <li>Federal Law</li>
+        <li>Islamic Law</li>
+      </ul>
+      
+      <h5>English</h5>
+      <ul>
+        <li>Fiction Creative Writing</li>
+        <li>Technical Writing</li>
+        <li>History of Literature</li>
+      </ul>
+      
+      <h5>math</h5>
+      <ul>
+        <li>Algebraic Computation</li>
+        <li>Computational Number Theory</li>
+      </ul>
+      
+      <h5>History</h5>
+      <ul>
+        <li>History and Politics</li>
+        <li>Latin American History</li>
+        <li>Nigerian History</li>
+        <li>Canadian History</li>
+        <li>Mongolian History</li>
+      </ul>
+      
+      <h5>Art</h5>
+      <ul>
+        <li>Interior Design</li>
+        <li>Music Education</li>
+        <li>Orchestral Studies</li>
+        <li>Music Studies</li>
+        <li>Systematic Musicology</li>
+      </ul>
+      </ul>
+      </div>
+    </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+  </body>
   
-</body>
-
 </html>
