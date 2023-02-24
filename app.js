@@ -2,13 +2,15 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Stu = require('./models/student')
-
+const Teach = require('./models/teacher');
+const Course = require('./models/class');
+const Dept = require('./models/department');
 
 // express app
 const app = express();
 
 // listen for requests
-const dBURI = 'mongodb+srv://group2.fnkywbf.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority';
+const dBURI = 'mongodb+srv://aowens35:schoolyard@group2.apj3tsk.mongodb.net/school?retryWrites=true&w=majority';
 mongoose.set('strictQuery', true);
 mongoose.connect(dBURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000))

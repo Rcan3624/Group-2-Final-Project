@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const studentSchema = new Schema({
+const courseSchema = new Schema({
 
-    name: {
+    dept: {
         type: String,
         required: true
     },
-    address: {
+    name: {
         type: String,
         required: true
     },
 
 }, {timestamp: true});
 
-const Stu = mongoose.model('Student', studentSchema)
-module.exports = Stu
+const Course = mongoose.model('Class', courseSchema)
+module.exports = Course

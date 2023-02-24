@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const studentSchema = new Schema({
+const teacherSchema = new Schema({
 
     name: {
         type: String,
@@ -14,5 +14,5 @@ const studentSchema = new Schema({
 
 }, {timestamp: true});
 
-const Stu = mongoose.model('Student', studentSchema)
-module.exports = Stu
+const Teach = mongoose.model('Teacher', teacherSchema)
+module.exports = Teach
