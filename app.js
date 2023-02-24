@@ -10,56 +10,66 @@ const app = express();
 // listen for requests
 const dBURI = 'mongodb+srv://group2.fnkywbf.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority';
 mongoose.set('strictQuery', true);
-mongoose.connect(dBURI, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then((result)=> app.listen(3000))
-    .catch((err)=> console.log(err));
+mongoose.connect(dBURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result) => app.listen(3000))
+  .catch((err) => console.log(err));
 
 //register view engine
 app.set('view engine', 'ejs');
 
 //middleware and static files
 app.use(express.static('public'));
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 
 // Home page
 app.get('/', (req, res) => {
-    //res.send('<p>home page</p>');
-    res.sendFile('./pages/index.html', { root: __dirname });
+  res.render('index');
 });
 
-// Home page redirect
-app.get('/home', (req, res) => {
-    res.redirect('/index');
+//Home page redirect
+app.get('/index', (req, res) => {
+  res.redirect('./pages/index.ejs');
 });
 
 // About Page
-app.get('/faq', (req, res) => {
-    //res.send('<p>about page</p>')
-    res.render('./pages/faq.html', { root: __dirname });
+app.get('/about', (req, res) => {
+  res.render('about', { title: 'About' });
 });
 
 // about redirect
-app.get('/degrees', (req, res) => {
-    res.render('./pages/degrees.html', { root: __dirname });
+//app.get('/about-us', (req, res) => {
+//res.redirect('./pages/about.html');
+//});
+
+// Degrees page
+app.get('/degrees.html', (req, res) => {
+  res.render('degrees', { title: 'Degrees' });
 });
 
-app.get('/courses', (req, res)=> {
-    res.render('./pages/course_list.html', { root: __dirname })
+// Course List Page
+app.get('/course_list.ejs', (req, res) => {
+  res.render('course_list', { title: 'Admission' });
 });
 
-app.get('/admissions', (req, res)=>{
-    res.render('./pages/admission.html', { root: __dirname })
+// FAQ page
+app.get('/faq.html', (req, res) => {
+  res.render('faq', { title: 'Faq' });
 });
 
-app.get('login', (req, res)=>{
-    res.render('./pages/login', { root: __dirname })
+// Admission Page
+app.get('/admission.ejs', (req, res) => {
+  res.render('admission', { title: 'Admission' });
 });
 
+// Login page
+app.get('/login.html', (req, res) => {
+  res.render('login', { title: 'Login' });
+});
 
 
 // 404 page
 app.use(() => {
-    res.status(404).render('./pages/404.html', { root: __dirname });
+  res.status(404).render('./pages/404.html', { root: __dirname });
 });
