@@ -30,20 +30,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-//Home page redirect
-app.get('/index', (req, res) => {
-  res.redirect('./pages/index.ejs');
+// Home page redirect
+app.get('/index.html', (req, res) => {
+  res.render('index');
 });
-
-// About Page
-app.get('/about', (req, res) => {
-  res.render('about', { title: 'About' });
-});
-
-// about redirect
-//app.get('/about-us', (req, res) => {
-//res.redirect('./pages/about.html');
-//});
 
 // Degrees page
 app.get('/degrees.html', (req, res) => {
@@ -51,8 +41,8 @@ app.get('/degrees.html', (req, res) => {
 });
 
 // Course List Page
-app.get('/course_list.ejs', (req, res) => {
-  res.render('course_list', { title: 'Admission' });
+app.get('/course_list.html', (req, res) => {
+  res.render('course_list', { title: 'Course_List' });
 });
 
 // FAQ page
@@ -61,7 +51,7 @@ app.get('/faq.html', (req, res) => {
 });
 
 // Admission Page
-app.get('/admission.ejs', (req, res) => {
+app.get('/admission.html', (req, res) => {
   res.render('admission', { title: 'Admission' });
 });
 
@@ -70,8 +60,7 @@ app.get('/login.html', (req, res) => {
   res.render('login', { title: 'Login' });
 });
 
-
 // 404 page
-app.use(() => {
+app.use((req, res) => {
   res.status(404).render('./pages/404.html', { root: __dirname });
 });
