@@ -10,7 +10,7 @@ const Dept = require('./models/department');
 const app = express();
 
 // listen for requests
-const dBURI = 'mongodb+srv://aowens35:schoolyard@group2.apj3tsk.mongodb.net/school?retryWrites=true&w=majority';
+const dBURI = 'mongodb+srv://grouptwo:schoolyard@group2.50g5lu7.mongodb.net/?retryWrites=true&w=majority';
 mongoose.set('strictQuery', true);
 mongoose.connect(dBURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000))
@@ -27,40 +27,40 @@ app.use(morgan('dev'));
 
 // Home page
 app.get('/', (req, res) => {
-  res.render('index');
+  res.redirect('/sunnydale');
 });
 
 // Home page redirect
-app.get('/index.html', (req, res) => {
+app.get('/sunnydale', (req, res) => {
   res.render('index');
 });
 
 // Degrees page
-app.get('/degrees.html', (req, res) => {
-  res.render('degrees', { title: 'Degrees' });
+app.get('/sunnydale/degrees', (req, res) => {
+  res.render('degrees', { title: 'Degrees' })
 });
 
 // Course List Page
-app.get('/course_list.html', (req, res) => {
-  res.render('course_list', { title: 'Course_List' });
+app.get('/sunnydale/course_list', (req, res) => {
+  res.render('course_list', { title: 'Course_List' })
 });
 
 // FAQ page
-app.get('/faq.html', (req, res) => {
-  res.render('faq', { title: 'Faq' });
+app.get('/sunnydale/faq', (req, res) => {
+  res.render('faq', { title: 'Faq' })
 });
 
 // Admission Page
-app.get('/admission.html', (req, res) => {
-  res.render('admission', { title: 'Admission' });
+app.get('/sunnydale/admission', (req, res) => {
+  res.render('admission', { title: 'Admission' })
 });
 
 // Login page
-app.get('/login.html', (req, res) => {
-  res.render('login', { title: 'Login' });
+app.get('/sunnydale/login', (req, res) => {
+  res.render('login', { title: 'Login' })
 });
 
 // 404 page
 app.use((req, res) => {
-  res.status(404).render('./pages/404.html', { root: __dirname });
+  res.status(404).render('404', { title: '404' })
 });
