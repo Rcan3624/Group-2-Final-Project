@@ -5,6 +5,7 @@ const Stu = require('./models/student')
 const Teach = require('./models/teacher');
 const Course = require('./models/class');
 const Dept = require('./models/department');
+const Enroll = require('./models/enrollment');
 
 // express app
 const app = express();
