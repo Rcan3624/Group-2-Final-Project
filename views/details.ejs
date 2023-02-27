@@ -11,7 +11,7 @@
       <p><%= class.dept %></p>
     </div>
     <!--Delete Button Code-->
-    <a class="delete" data-doc="<%= blog._id %>">delete</a>
+    <a class="delete" data-doc="<%= class._id %>">delete</a>
   </div>
 
   <%- include("./partials/footer.ejs") %>
@@ -19,7 +19,7 @@
   <script>
     const trashcan = document.querySelector('a.delete');
     trashcan.addEventListener('click', (e) => {
-      const endpoint = `/classes/${trashcan.dataset.doc}`;
+      const endpoint = `12/classes/${trashcan.dataset.doc}`;
       fetch(endpoint, {
         method: 'DELETE',
       })
@@ -29,5 +29,7 @@
     });
     
   </script>
+
+
 </body>
 </html>

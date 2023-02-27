@@ -25,6 +25,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
+// https://youtu.be/bxsemcrY4gQ?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG&t=1891
 //TODO - 
 // routes
 //app.get('/courses')
@@ -32,7 +33,7 @@ app.use(morgan('dev'));
 //TODO - 
 // class routes
 //app.get('/classes/create', (req, res) => {
-//res.render('create', { title: 'Create a new course' });
+  //res.render('create', { title: 'Create a new course' });
 //});
 
 // Home page

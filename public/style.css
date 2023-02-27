@@ -13,6 +13,11 @@ nav{
     background-color: #D0B8A8;
 }
 
+/* TODO: Get footer to stay at the bottom of the page */
+footer{
+    background-color: #D0B8A8;
+}
+
 .btn{
     margin-bottom: 30px;
 }

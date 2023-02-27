@@ -1,5 +1,4 @@
 hidden=[".config"]
-modules = ["?"]
 
 # hosting is currently hardcoded for this language
 # [hosting]
