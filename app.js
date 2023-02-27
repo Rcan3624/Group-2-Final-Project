@@ -25,6 +25,15 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
+//TODO - 
+// routes
+//app.get('/courses')
+
+//TODO - 
+// class routes
+//app.get('/classes/create', (req, res) => {
+//res.render('create', { title: 'Create a new course' });
+//});
 
 // Home page
 app.get('/', (req, res) => {

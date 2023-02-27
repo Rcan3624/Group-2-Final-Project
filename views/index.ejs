@@ -7,6 +7,24 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
+     <!--Read the courses from the database and display them and on the home page. Taken from the lesson 10 Net Ninja video.-->
+     <!--TODO:  Still need to modify the html code to get it to work with our database-->
+    <!--<div class="classes content">-->
+      <!--<h2>All Blogs</h2>-->
+      
+      <!--Display courses from database on the front page-->
+      <!--<% if (classes.length > 0) { %>
+        <% classes.forEach(blog => { %>
+          <a class="single" href="/sunnydale/<%= blog._id %>">
+            <h3 class="name"><%= class.name %></h3>
+            <p class="dept"><%= class.dept %></p>
+          </a>
+        <% }) %>
+      <% } else { %>
+        <p>There are no courses to display...</p>
+      <% } %>-->
+      
+    <!--</div>-->
       
       <h1 class="h1">Sunnydale Community College</h1>
       <img class="logo rounded-pill float-lg-none" src="logo.jpeg" alt="SCC Logo">
