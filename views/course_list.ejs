@@ -7,149 +7,113 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
-      <h1 class="h1 mb-5">Available Courses</h1>
-      
-      <div class="d-flex justify-content-center">
-      <div class="list-group float-md-left mx-4">
-      <h5>Anthropology</h5>
-      <ul>
-        <li>Evolutionary Anthropology</li>
-        <li>Social Anthropology</li>
-        <li>Public Anthropology</li>
-        <li>Feminist Anthropology</li>
-        <li>Social Anthropology</li>
-        <li>Urban Anthropology</li>
-        <li>Biocultural Anthropology</li>
-      </ul>
-      
-      <h5>Engineering</h5>
-      <ul>
-        <li>Ceramic Engineering</li>
-        <li>Industrial Engineering</li>
-      </ul>
+      <h1 class="h1">Available Courses</h1>
 
-      <h5>Media</h5>
-      <ul>
-        <li>Visual Communication Design</li>
-        <li>Mass Communication</li>
-        <li>Propaganda</li>
-      </ul>
+      <div class="card-deck d-flex flex-column mx-2">
+        <div class="d-flex">
+          <div class="card-body">
+            <h5 class="card-title">Anthropology</h5>
+            <p class="card-text">Evolutionary Anthropology</p>
+            <p class="card-text">Social Anthropology</p>
+            <p class="card-text">Public Anthropology</p>
+            <p class="card-text">Feminist Anthropology</p>
+            <p class="card-text">Social Anthropology</p>
+            <p class="card-text">Urban Anthropology</p>
+            <p class="card-text">Biocultural Anthropology</p>
+          </div>
+          
+          <div class="card-body">
+            <h5 class="card-title">Art</h5>
+            <p class="card-text">Interior Design</p>
+            <p class="card-text">Music Education</p>
+            <p class="card-text">Orchestral Studies</p>
+            <p class="card-text">Music Studies</p>
+            <p class="card-text">Systematic Musicology</p>
+          </div>
+          
+          <div class="card-body">
+            <h5 class="card-title">Business</h5>
+            <p class="card-text">International Trade</p>
+          </div>
 
-      <h5>Science</h5>
-      <ul>
-        <li>Paleobiology</li>
-        <li>Science Policy</li>
-        <li>Stellar Nucleosynthesis</li>
-        <li>Sociology of Science</li>
-        <li>Biology</li>
-        <li>Geochemistry</li>
-        <li>Chemical Physics</li>
-        <li>Paleoclimatology</li>
-        <li>Science and Technology Studies</li>
-        <li>Green Chemistry</li>
-        <li>Climatology</li>
-        <li>Classical Physics</li>
-      </ul>
-      </div>
-
-      <div class="list-group float-md-left mx-4"">
-      <h5>Medical</h5>
-      <ul>
-        <li>Dentistry</li>
-        <li>Organology</li>
-        <li>Sociology of Autism</li>
-        <li>Pharmacy</li>
-        <li>Sports Medicine</li>
-      </ul>
-      
-      <h5>Education</h5>
-      <ul>
-        <li>Elementary Education</li>
-        <li>Peace Education</li>
-      </ul>
-
-        <h5>Business</h5>
-        <ul>
-          <li>International Trade</li>
-        </ul>
-        <h5>Civics</h5>
-      <ul>
-        <li>Religions of East Asia</li>
-      </ul>
-
-        <h5>Social Science</h5>
-      <ul>
-        <li>Jewish Studies</li>
-        <li>Jain Studies</li>
-        <li>Urban Studies</li>
-        <li>Central Asian Studies</li>
-        <li>Public Economics</li>
-        <li>Women's Studies</li>
-        <li>Philosophy of Action</li>
-        <li>Leisure Studies</li>
-        <li>Jealousy Sociology</li>
-        <li>Sociology of Motherhood</li>
-        <li>Social Philosophy</li>
-        <li>Computational Sociology</li>
-        <li>Sociology of Disaster</li>
-      </ul>
+          <div class="card-body">
+            <h5 class="card-title">Civics</h5>
+            <p class="card-text">Religions of East Asia</p>
+          </div>        
         </div>
 
-        <div class="list-group float-md-left mx-4">
-        <h5>pyschology</h5>
-        <ul>
-          <li>Educational Psychology</li>
-          <li>Speech Communication</li>
-          <li>Quantitative Psychology</li>
-          <li>Parapsychology</li>
-          <li>Social Development</li>
-        </ul>
-        
-      <h5>Law</h5>
-      <ul>
-        <li>Federal Law</li>
-        <li>Islamic Law</li>
-      </ul>
-      
-      <h5>English</h5>
-      <ul>
-        <li>Fiction Creative Writing</li>
-        <li>Technical Writing</li>
-        <li>History of Literature</li>
-      </ul>
-      
-      <h5>math</h5>
-      <ul>
-        <li>Algebraic Computation</li>
-        <li>Computational Number Theory</li>
-      </ul>
-      
-      <h5>History</h5>
-      <ul>
-        <li>History and Politics</li>
-        <li>Latin American History</li>
-        <li>Nigerian History</li>
-        <li>Canadian History</li>
-        <li>Mongolian History</li>
-      </ul>
-      
-      <h5>Art</h5>
-      <ul>
-        <li>Interior Design</li>
-        <li>Music Education</li>
-        <li>Orchestral Studies</li>
-        <li>Music Studies</li>
-        <li>Systematic Musicology</li>
-      </ul>
-      </ul>
+        <div class="d-flex">
+          <div class="card-body">
+            <h5 class="card-title">Education</h5>
+            <p class="card-text">Elementary Education</p>
+            <p class="card-text">Peace Education</p>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Engineering</h5>
+            <p class="card-text">Ceramic Engineering</p>
+            <p class="card-text">Industrial Engineering</p>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">English</h5>
+            <p class="card-text">Fiction Creative Writing</p>
+            <p class="card-text">Technical Writing</p>
+            <p class="card-text">History of Literature</p>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">History</h5>
+            <p class="card-text">History and Politics</p>
+            <p class="card-text">Latin American History</p>
+            <p class="card-text">Nigerian History</p>
+            <p class="card-text">Canadian History</p>
+            <p class="card-text">Mongolian History</p>
+          </div>
+        </div>
+
+        <div class="d-flex">
+          <div class="card-body">
+            <h5 class="card-title">Law</h5>
+            <p class="card-text">Federal Law</p>
+            <p class="card-text">State Law</p>
+            <p class="card-text">Islamic Law</p>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Math</h5>
+            <p class="card-text">Algebraic Computation</p>
+            <p class="card-text">Computational Number Theory</p>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Pyschology</h5>
+            <p class="card-text">Educational Psychology</p>
+            <p class="card-text">Speech Communication</p>
+            <p class="card-text">Quantitative Psychology</p>
+            <p class="card-text">Parapsychology</p>
+            <p class="card-text">Social Development</p>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Science</h5>
+            <p class="card-text">Paleobiology</p>
+            <p class="card-text">Science Policy</p>
+            <p class="card-text">Stellar Nucleosynthesis</p>
+            <p class="card-text">Sociology of Science</p>
+            <p class="card-text">Biology</p>
+            <p class="card-text">Geochemistry</p>
+            <p class="card-text">Chemical Physics</p>
+            <p class="card-text">Paleoclimatology</p>
+            <p class="card-text">Sience and Technology Studies</p>
+            <p class="card-text">Green Chemistry</p>
+            <p class="card-text">Climatology</p>
+            <p class="card-text">Classical Physics</p>
+          </div>
+        </div>
       </div>
-    </div>
+       
       
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     <!-- Read footer.ejs file from partials folder-->
     <footer>
