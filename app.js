@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 
 // Home page redirect
 app.get('/sunnydale', (req, res) => {
-  res.render('index');
+  res.render('index', { title: 'Home' })
 });
 
 // Degrees page
@@ -53,12 +53,12 @@ app.get('/sunnydale/degrees', (req, res) => {
 
 // Course List Page
 app.get('/sunnydale/course_list', (req, res) => {
-  res.render('course_list', { title: 'Course_List' })
+  res.render('course_list', { title: 'Course List' })
 });
 
 // FAQ page
 app.get('/sunnydale/faq', (req, res) => {
-  res.render('faq', { title: 'Faq' })
+  res.render('faq', { title: 'FAQ' })
 });
 
 // Admission Page
