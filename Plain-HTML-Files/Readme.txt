@@ -1,1 +1,0 @@
-A place to test out pure HTML code in case if there are issues with ejs
