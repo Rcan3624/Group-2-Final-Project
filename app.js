@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Stu = require('./models/student')
 const Teach = require('./models/teacher');
 const Course = require('./models/class');
-const Dept = require('./models/department');
 const Enroll = require('./models/enrollment');
 
 // express app
@@ -25,16 +24,6 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-// https://youtu.be/bxsemcrY4gQ?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG&t=1891
-//TODO - 
-// routes
-//app.get('/courses')
-
-//TODO - 
-// class routes
-//app.get('/classes/create', (req, res) => {
-  //res.render('create', { title: 'Create a new course' });
-//});
 
 // Home page
 app.get('/', (req, res) => {
@@ -50,6 +39,7 @@ app.get('/sunnydale', (req, res) => {
 app.get('/sunnydale/degrees', (req, res) => {
   res.render('degrees', { title: 'Degrees' })
 });
+
 
 // Course List Page
 app.get('/sunnydale/course_list', (req, res) => {
@@ -69,6 +59,40 @@ app.get('/sunnydale/admission', (req, res) => {
 // Login page
 app.get('/sunnydale/login', (req, res) => {
   res.render('login', { title: 'Login' })
+});
+
+// routes
+app.get('/', (req, res) => {
+  res.redirect('/courses');
+});
+
+//TODO - 
+// Create course code
+//app.get('/courses/create', (req, res) => {
+  //res.render('create', { title: 'Create a new course' });
+//});
+
+app.get('/courses', (req, res) => {
+  Course.find().sort({ createdAt: -1 })
+    .then(result => {
+      res.render('index', { course: result, title: 'All courses' });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+// Course delete code
+app.delete('/courses/:id', (req, res) => {
+  const id = req.params.id;
+  
+  Blog.findByIdAndDelete(id)
+    .then(result => {
+      res.json({ redirect: '/courses' });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 // 404 page

@@ -6,14 +6,14 @@
 <body>
   <%- include("./partials/nav.ejs") %>
 
-  <div class="create-blog content">
-    <form action="/sunnydale" method="POST">
-      <label for="firstName">First Name:</label>
-      <input type="text" id="title" name="title" required>
-      <label for="snippet">Last Name:</label>
-      <input type="text" id="snippet" name="snippet" required>
-      <label for="body">Blog body:</label>
-      <textarea id="body" name="body" required></textarea>
+  <div class="create-course content">
+    <form action="/courses" method="POST">
+      <label for="_id">Course id:</label>
+      <input type="number" id="_id" name="_id" required>
+      <label for="dept">Course Dept:</label>
+      <input type="text" id="dept" name="dept" required>
+      <label for="name">Course name:</label>
+      <textarea id="name" name="name" required></textarea>
       <button>Create</button>
     </form>
   </div>

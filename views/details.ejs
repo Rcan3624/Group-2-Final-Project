@@ -6,9 +6,9 @@
   <%- include("./partials/nav.ejs") %>
 
   <div class="details content">
-    <h2><%= class.name %></h2>
+    <h2><%= class.dept %></h2>
     <div class="content">
-      <p><%= class.dept %></p>
+      <p><%= class.name %></p>
     </div>
     <!--Delete Button Code-->
     <a class="delete" data-doc="<%= class._id %>">delete</a>
@@ -19,7 +19,7 @@
   <script>
     const trashcan = document.querySelector('a.delete');
     trashcan.addEventListener('click', (e) => {
-      const endpoint = `12/classes/${trashcan.dataset.doc}`;
+      const endpoint = `12/courses/${trashcan.dataset.doc}`;
       fetch(endpoint, {
         method: 'DELETE',
       })
