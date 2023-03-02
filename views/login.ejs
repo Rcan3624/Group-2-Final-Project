@@ -7,21 +7,38 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
-      
-      
+    
         <h1 class="h1">Sign In</h1>
+        <img class="logo rounded-pill float-lg-none" src="/images/logo.jpeg" alt="SCC Logo">
+
+        <article class="float-left" style="min-width: 50%;">
         <form>
-          <div class="form-group col-sm-7">
+          <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>            
           </div>
-          <div class="form-group col-sm-7">
+          <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">            
           </div>
-          <button type="submit" class="btn btn-primary ml-3">Submit</button>
-        </form>
+          
+          <div class="dropdown show">
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select One:
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Student</a>
+              <a class="dropdown-item" href="#">Teacher</a>
+            </div>            
+          </div>                   
+          </form>         
+        </article>
+        <img class="float-right pl-3 mr-2 my-5" src="/images/student2.png"  alt="Student 1" style="max-width: 40%; min-width: 40%"> 
+
+          <!--<button type="submit" class="btn btn-primary ml-3">Submit</button>
+        </form>-->
     
     <!-- Read footer.ejs file from partials folder-->
     <footer>
