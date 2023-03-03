@@ -30,7 +30,7 @@ app.use(morgan('dev'));
 
 // Home page
 app.get('/', (req, res) => {
-  res.redirect('/sunnydale');
+  res.render('index');
 });
 
 // Home page redirect
@@ -65,9 +65,9 @@ app.get('/sunnydale/login', (req, res) => {
 });
 
 // routes
-app.get('/', (req, res) => {
-  res.redirect('/courses');
-});
+// app.get('/', (req, res) => {
+//   res.redirect('/courses');
+// });
 
 //TODO - 
 // Create course code
@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 app.get('/courses', (req, res) => {
   Course.find().sort({ createdAt: -1 })
     .then(result => {
-      res.render('index', { course: result, title: 'All courses' });
+      res.render('index', { course: re6sult, title: 'All courses' });
     })
     .catch(err => {
       console.log(err);
