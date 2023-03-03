@@ -1,3 +1,6 @@
+//TODO - Figure out what's causing the "SyntaxError: Unexpected token '.' " error when running the "nodemon app" in the terminal
+// Note for anyone reading this code: This is all based of this video by Net Ninja: https://youtu.be/VVGgacjzc2Y?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG
+
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
