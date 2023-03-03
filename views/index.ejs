@@ -7,26 +7,21 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
-    
-    <!--TODO add code from video link and modify it to work and display the database content-->
-    
-    <!-- Lesson 07 https://youtu.be/yXEesONd_54?list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU&t=1053-->
-      
-    <!-- Lesson 09 https://youtu.be/bxsemcrY4gQ?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG&t=2014 -->
-    <div class="course content">
+
+    <div class="courses content">
       <h2>All Courses</h2>
-  
-      <% if (courses.length > 0) { %>
-        <% blogs.forEach(blog => { %>
-          <a class="single" href="/courses/<%= class._id %>">
-            <h3 class="dept"><%= class.dept %></h3>
-            <p class="name"><%= class.name %></p>
-          </a>
-        <% }) %>
-      <% } else { %>
-        <p>There are no courses to display...</p>
-      <% } %>
       
+      <!-- The error has to be somewhere in here. I can't figure out what's causing it. -->
+      <% if (courses.length > 0) { %>
+        <% courses.forEach(class => { %>
+          <a class="single" href="/courses/<%= class._id %>">
+            <h3 class="dept"><%= class.dept %>
+            <p class="name"><%= class.name %></p></h3>
+          </a>
+        <% } else { %>
+          <p>There are no courses to display...</p>} 
+        <% } %>
+          
     </div>
       
       <h1 class="h1">Welcome to Sunnydale Community College</h1>

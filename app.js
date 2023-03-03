@@ -75,28 +75,28 @@ app.get('/sunnydale/login', (req, res) => {
   //res.render('create', { title: 'Create a new course' });
 //});
 
-app.get('/courses', (req, res) => {
-  Course.find().sort({ createdAt: -1 })
-    .then(result => {
-      res.render('index', { course: re6sult, title: 'All courses' });
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
+// app.get('/courses', (req, res) => {
+//   Course.find().sort({ createdAt: -1 })
+//     .then(result => {
+//       res.render('index', { course: result, title: 'All courses' });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// });
 
-// Course delete code
-app.delete('/courses/:id', (req, res) => {
-  const id = req.params.id;
+ // Course delete code
+// app.delete('/courses/:id', (req, res) => {
+//   const id = req.params.id;
   
-  Blog.findByIdAndDelete(id)
-    .then(result => {
-      res.json({ redirect: '/courses' });
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
+//   Blog.findByIdAndDelete(id)
+//     .then(result => {
+//       res.json({ redirect: '/courses' });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// });
 
 // 404 page
 app.use((req, res) => {
