@@ -14,9 +14,9 @@ const courseSchema = new Schema({
     name: {
         type: String,
         required: true
-    }
+    },
 
-}, {timestamp: true});
+});
 
 const Course = mongoose.model('Course', courseSchema)
-module.exports = Course
+module.exports = Course;

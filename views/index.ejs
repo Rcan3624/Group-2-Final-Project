@@ -8,23 +8,7 @@
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
 
-    <div class="courses content">
-      <h2>All Courses</h2>
-      
-      <!-- The error has to be somewhere in here. I can't figure out what's causing it. -->
-      <% if (courses.length > 0) { %>
-        <% courses.forEach(class => { %>
-          <a class="single" href="/courses/<%= class._id %>">
-            <h3 class="dept"><%= class.dept %>
-            <p class="name"><%= class.name %></p></h3>
-          </a>
-        <% } else { %>
-          <p>There are no courses to display...</p>} 
-        <% } %>
-          
-    </div>
-      
-      <h1 class="h1">Welcome to Sunnydale Community College</h1>
+    <h1 class="h1">Welcome to Sunnydale Community College</h1>
       <h2 class="h2">Established in 1963</h2>
       <img class="logo rounded-pill float-lg-none" src="logo.jpeg" alt="SCC Logo">
       
@@ -39,11 +23,30 @@
       <p>If you have any questions, visit our faq section where we answer some of the most common questions asked by our new and current students.</p>
      
       </article>
-    
+
+   
+
+    <div class="courses content">
+      <h2>All Courses</h2>
+  
+      <% if (courses.length > 0) { %>
+        <% courses.forEach(course => { %>
+          <a class="single" href="/sunnydale/<%= course._id %>">
+            <h3 class="dept"><%= course.dept %></h3>
+            <p class="name"><%= course.name %></p>
+          </a>
+        <% }) %>
+      <% } else { %>
+        <p>There are no courses to display...</p>
+      <% } %>
+      
+    </div>
     
     <footer>
       <%- include("./partials/footer.ejs") %>
     </footer>
+      
+   
     
   </body>
   

@@ -1,4 +1,3 @@
-//TODO - Figure out what's causing the "SyntaxError: Unexpected token '.' " error when running the "nodemon app" in the terminal
 // Note for anyone reading this code: This is all based of this video by Net Ninja: https://youtu.be/VVGgacjzc2Y?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG
 
 const express = require('express');
@@ -30,75 +29,70 @@ app.use(morgan('dev'));
 
 // Home page
 app.get('/', (req, res) => {
-  res.render('index');
+  res.redirect('/sunnydale');
 });
+
+//Lookup database
+app.get('/sunnydale', (req, res) => {
+  Course.find().sort({ createdAt: -1 })
+    .then(result => {
+      res.render('index', { courses: result, title: 'All courses' });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+app.get('/sunnydale/:id', (req, res) => {
+  const id = req.params.id;
+  Course.findById(id)
+    .then(result => {
+      res.render('details', { course: result, title: 'Course Details' });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+// blog routes
+app.get('/sunnydale/create', (req, res) => {
+  res.render('create', { title: 'Create a new course' });
+});
+
+
 
 // Home page redirect
 app.get('/sunnydale', (req, res) => {
   res.render('index', { title: 'Home' })
 });
 
-// Degrees page
-app.get('/sunnydale/degrees', (req, res) => {
-  res.render('degrees', { title: 'Degrees' })
-});
+// // Degrees page
+// app.get('/sunnydale/degrees'z (req, res) => {
+//   res.render('degrees', { tizle: 'Degrees' })
+// });
 
 
-// Course List Page
-app.get('/sunnydale/course_list', (req, res) => {
-  res.render('course_list', { title: 'Course List' })
-});
+ // Course List Page
+ app.get('/sunnydale/course_list', (req, res) => {
+   res.render('courses', { title: 'Course List' })
+ });
 
 // FAQ page
-app.get('/sunnydale/faq', (req, res) => {
-  res.render('faq', { title: 'FAQ' })
-});
+ app.get('/sunnydale/faq', (req, res) => {
+   res.render('faq', { title: 'FAQ' })
+ });
 
-// Admission Page
-app.get('/sunnydale/admission', (req, res) => {
-  res.render('admission', { title: 'Admission' })
-});
-
-// Login page
-app.get('/sunnydale/login', (req, res) => {
-  res.render('login', { title: 'Login' })
-});
-
-// routes
-// app.get('/', (req, res) => {
-//   res.redirect('/courses');
+// // Admission Page
+// app.get('/sunnydale/admission', (req, res) => {
+//   res.render('admission', { title: 'Admission' })
 // });
 
-//TODO - 
-// Create course code
-//app.get('/courses/create', (req, res) => {
-  //res.render('create', { title: 'Create a new course' });
-//});
-
-// app.get('/courses', (req, res) => {
-//   Course.find().sort({ createdAt: -1 })
-//     .then(result => {
-//       res.render('index', { course: result, title: 'All courses' });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
+// // Login page
+// app.get('/sunnydale/login', (req, res) => {
+//   res.render('login', { title: 'Login' })
 // });
 
- // Course delete code
-// app.delete('/courses/:id', (req, res) => {
-//   const id = req.params.id;
-  
-//   Blog.findByIdAndDelete(id)
-//     .then(result => {
-//       res.json({ redirect: '/courses' });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
+// // 404 page
+// app.use((req, res) => {
+//   res.status(404).render('404', { title: '404' })
 // });
-
-// 404 page
-app.use((req, res) => {
-  res.status(404).render('404', { title: '404' })
-});
