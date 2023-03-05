@@ -25,12 +25,12 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
+//TODO: Fix the issue with the links, and add the ability to add, update, and remove the courses
 // https://youtu.be/bxsemcrY4gQ?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG&t=1891
-//TODO - 
 // routes
 //app.get('/courses')
 
-//TODO - 
+
 // class routes
 //app.get('/classes/create', (req, res) => {
   //res.render('create', { title: 'Create a new course' });
