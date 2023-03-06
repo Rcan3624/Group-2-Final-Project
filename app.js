@@ -29,69 +29,71 @@ app.use((req, res, next) => {
   next();
 });
 
-//TODO: Fix the issue with the links, and add the ability to add, update, and remove the courses
+
 
 // DATABASE STUFF
 
 // Lookup database
-app.get('/', (req, res, next) => {
-  Course.find().sort({ createdAt: -1 })
-    .then(result => {
-      res.render('index', { courses: result, title: 'All courses' });
-      next();
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
-
-app.get('/sunnydale/:id', (req, res, next) => {
-  const id = req.params.id;
-  Course.findById(id)
-    .then(result => {
-      res.render('details', { courses: result, title: 'Course Details' });
-      next();
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
-// End of Database lookup
-
-// TODO Still need to get code for creating courses working
-// create courses code
-app.get('/sunnydale/create', (req, res) => {
-  res.render('create', { courses: 'Create a new course' });
-});
-
 app.get('/sunnydale', (req, res) => {
   Course.find().sort({ createdAt: -1 })
     .then(result => {
-      res.render('index', { courses: result, title: 'All Courses' });
+      res.render('index', { courses: result, title: 'All courses' });
+      
     })
     .catch(err => {
       console.log(err);
     });
 });
-// end create courses code
 
-// TODO Still need to get code for deleting courses working
-// Delete course code
-app.delete('/sunnydale/:id', (req, res) => {
-  const id = req.params.id;
+//TODO: Fix the issue with the links, and add the ability to add, update, and remove the courses
+
+// app.get('/sunnydale/:id', (req, res) => {
+//   const id = req.params.id;
+//   Course.findById(id)
+//     .then(result => {
+//       res.render('details', { courses: result, title: 'Course Details' });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// });
+// End of Database lookup
+
+// // TODO Still need to get code for creating courses working
+// // create courses code
+// app.get('/sunnydale/create', (req, res) => {
+//   res.render('create', { courses: 'Create a new course' });
+// });
+
+// app.get('/sunnydale', (req, res) => {
+//   Course.find().sort({ createdAt: -1 })
+//     .then(result => {
+//       res.render('index', { courses: result, title: 'All Courses' });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// });
+// // end create courses code
+
+// // TODO Still need to get code for deleting courses working
+// // Delete course code
+// app.delete('/sunnydale/:id', (req, res) => {
+//   const id = req.params.id;
   
-  Course.findByIdAndDelete(id)
-    .then(result => {
-      res.json({ redirect: '/sunnydale' });
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
+//   Course.findByIdAndDelete(id)
+//     .then(result => {
+//       res.json({ redirect: '/sunnydale' });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// });
 // end delete course code
+// END OF DATABASE STUFF
+
 
 // URL STUFF
-
 // Home page
 app.get('/', (req, res) => {
   res.redirect('/sunnydale');
@@ -131,3 +133,4 @@ app.get('/sunnydale/login', (req, res) => {
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' })
 });
+//END OF URL STUFF
