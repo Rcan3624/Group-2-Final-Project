@@ -46,6 +46,7 @@ app.get('/sunnydale', (req, res) => {
 });
 
 //TODO: Fix the issue with the links, and add the ability to add, update, and remove the courses
+// This is an ugly fix, but this will have to do for now.
 
 // app.get('/sunnydale/:id', (req, res) => {
 //   const id = req.params.id;
