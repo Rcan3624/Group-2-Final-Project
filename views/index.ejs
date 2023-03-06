@@ -7,10 +7,6 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
-    
-    <!--TODO add code from video link and modify it to work and display the database content-->
-    <!-- https://youtu.be/bxsemcrY4gQ?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG&t=2014 -->
-    
       
       <h1 class="h1">Welcome to Sunnydale Community College</h1>
       <h2 class="h2">Established in 1963</h2>
@@ -26,9 +22,9 @@
       <p>If you have any questions, visit our faq section where we answer some of the most common questions asked by our new and current students.</p>     
       </article> 
       
+      <!-- Display Database courses on front page -->
       <div class="courses content">
         <h2>All Courses</h2>
-    
         <% if (courses.length > 0) { %>
           <% courses.forEach(course => { %>
             <a class="single" href="/sunnydale/<%= course._id %>">
@@ -41,10 +37,7 @@
         <% } %>
         
       </div>
-      
-      <footer>
-        <%- include("./partials/footer.ejs") %>
-      </footer>
+      <!-- End of database display code -->
     
     <footer>
       <%- include("./partials/footer.ejs") %>

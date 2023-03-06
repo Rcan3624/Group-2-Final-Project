@@ -24,34 +24,33 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
+app.use((req, res, next) => {
+  res.locals.path = req.path;
+  next();
+});
 
 //TODO: Fix the issue with the links, and add the ability to add, update, and remove the courses
-// https://youtu.be/bxsemcrY4gQ?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG&t=1891
-// routes
-//app.get('/courses')
 
+// DATABASE STUFF
 
-// class routes
-//app.get('/classes/create', (req, res) => {
-  //res.render('create', { title: 'Create a new course' });
-//});
-
-//Lookup database
-app.get('/sunnydale', (req, res) => {
+// Lookup database
+app.get('/', (req, res, next) => {
   Course.find().sort({ createdAt: -1 })
     .then(result => {
       res.render('index', { courses: result, title: 'All courses' });
+      next();
     })
     .catch(err => {
       console.log(err);
     });
 });
 
-app.get('/sunnydale/:id', (req, res) => {
+app.get('/sunnydale/:id', (req, res, next) => {
   const id = req.params.id;
   Course.findById(id)
     .then(result => {
-      res.render('details', { course: result, title: 'Course Details' });
+      res.render('details', { courses: result, title: 'Course Details' });
+      next();
     })
     .catch(err => {
       console.log(err);
@@ -59,6 +58,39 @@ app.get('/sunnydale/:id', (req, res) => {
 });
 // End of Database lookup
 
+// TODO Still need to get code for creating courses working
+// create courses code
+app.get('/sunnydale/create', (req, res) => {
+  res.render('create', { courses: 'Create a new course' });
+});
+
+app.get('/sunnydale', (req, res) => {
+  Course.find().sort({ createdAt: -1 })
+    .then(result => {
+      res.render('index', { courses: result, title: 'All Courses' });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+// end create courses code
+
+// TODO Still need to get code for deleting courses working
+// Delete course code
+app.delete('/sunnydale/:id', (req, res) => {
+  const id = req.params.id;
+  
+  Course.findByIdAndDelete(id)
+    .then(result => {
+      res.json({ redirect: '/sunnydale' });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+// end delete course code
+
+// URL STUFF
 
 // Home page
 app.get('/', (req, res) => {
