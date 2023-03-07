@@ -16,7 +16,7 @@ article {
 }
 
 .body {
-    background-image: linear-gradient(to bottom,#DFD3C3,#F8EDE3);
+    background: linear-gradient(0.25turn,#DFD3C3,#F8EDE3);
 }
 
 nav {
