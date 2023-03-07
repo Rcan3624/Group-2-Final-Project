@@ -1,0 +1,17 @@
+Insert at line 12
+
+<div class="courses content">
+      <h2>All Courses</h2>
+      <% if (courses.length > 0) { %>
+        <% courses.forEach(course => { %>
+          <a class="single" href="/sunnydale/<%= course._id %>">
+            <h3 class="dept"><%= course.dept %></h3>
+            <p class="name"><%= course.name %></p>
+            <p class="desc"><%= course.desc %></p>
+          </a>
+        <% }) %>
+      <% } else { %>
+        <p>There are no courses to display...</p>
+      <% } %>
+      
+    </div>

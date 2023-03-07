@@ -27,8 +27,16 @@
             <a class="nav-link" href="/sunnydale/faq">FAQ</a>
           </li>
       </ul>
-
+       <% if (user) { %>
+        
+          <a class="nav-link" href="/sunnydale/create">Add Courses</a>
+       
+        Welcome, <%= user.email %>
+      <a class="btn btn-primary my-2 my-sm-0" href="/sunnydale/logout" role="button">Sign out</a>
+      <% } else { %>
       <!-- Sign in button -->
       <a class="btn btn-primary my-2 my-sm-0" href="/sunnydale/login" role="button">Sign In</a>
+      <% } %>
+      
     </div>
   </nav>
