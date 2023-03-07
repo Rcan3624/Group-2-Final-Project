@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Read head.ejs file from partials folder-->
@@ -7,40 +7,79 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
-      
+
+    <div class="container">
       <h1 class="h1">Welcome to Sunnydale Community College</h1>
       <h2 class="h2">Established in 1963</h2>
-      <img class="logo rounded-pill float-lg-none" src="logo.jpeg" alt="SCC Logo">
-      
-      <article>      
-      <h3 class="mt-5"><a href="/sunnydale/course_list">Available Courses</a></h3>
-      <p><img class="float-right mx-5 my-5" src="/images/student3.png"  alt="Student" style="max-width: 30%;">Welcome to Sunnydale Community College</p>
-      <p>We have a wide variety of courses for you to choose from. &nbsp;Whether you are an aspiring artist, interested in the different cultures from around the world, or studying the dark arts of polictics, we have a class just for you!</p>
-      <p>To find out more about about our courses, click the Available Courses link.</p>
-      <p>Quisquam, tempora quidem distinctio eligendi cumque ipsum dolorum minima dolor molestiae dicta recusandae aspernatur accusamus non nostrum. Veritatis beatae quia, rerum consectetur libero sint, corporis fugiat, ipsam repudiandae tempora eos?</p>
-      <p>Sed, nam consequuntur molestias labore nostrum voluptas aperiam autem iusto recusandae, debitis atque quas eos assumenda numquam optio dolorem laborum provident impedit eum nulla cum incidunt officiis vitae pariatur! Dolores.</p>
-      <p>If you have any questions, visit our faq section where we answer some of the most common questions asked by our new and current students.</p>     
-      </article> 
-      
+      <img
+        class="logo rounded-pill float-lg-none"
+        src="/images/logo.jpeg"
+        alt="SCC Logo"
+      />
+    </div>
+
+    <div class="container">
+      <div class="media">
+        <div class="media-body">
+          <h3 class="mt-5">
+            <a href="/sunnydale/course_list">Available Courses</a>
+          </h3>
+          <p>Welcome to Sunnydale Community College</p>
+          <img
+            class="pics float-right"
+            src="/images/student3.png"
+            alt="Student"
+          />
+          <p>
+            We have a wide variety of courses for you to choose from.
+            &nbsp;Whether you are an aspiring artist, interested in the
+            different cultures from around the world, or studying the dark arts
+            of polictics, we have a class just for you!
+          </p>
+
+          <p>
+            To find out more about about our courses, click the Available
+            Courses link.
+          </p>
+
+          <p>
+            Quisquam, tempora quidem distinctio eligendi cumque ipsum dolorum
+            minima dolor molestiae dicta recusandae aspernatur accusamus non
+            nostrum. Veritatis beatae quia, rerum consectetur libero sint,
+            corporis fugiat, ipsam repudiandae tempora eos?
+          </p>
+          <p>
+            Sed, nam consequuntur molestias labore nostrum voluptas aperiam
+            autem iusto recusandae, debitis atque quas eos assumenda numquam
+            optio dolorem laborum provident impedit eum nulla cum incidunt
+            officiis vitae pariatur! Dolores.
+          </p>
+          <p>
+            If you have any questions, visit our faq section where we answer
+            some of the most common questions asked by our new and current
+            students.
+          </p>
+        </div>
+      </div>
+
       <!-- Display Database courses on front page -->
-      <div class="courses content">
+      <div class="container">
         <h2>All Courses</h2>
-        <% if (courses.length > 0) { %>
-          <% courses.forEach(course => { %>
-            <a class="single" href="/sunnydale/<%= course._id %>">
-              <h3 class="dept"><%= course.dept %></h3>
-              <p class="name"><%= course.name %></p>
-            </a>
-          <% }) %>
-        <% } else { %>
+        <div class="row">
+          <% if (courses.length > 0) { %> <% courses.forEach(course => { %>
+          <a class="single" href="/sunnydale/<%= course._id %>">
+            <div class="py-3 px-4">
+              <h4><%= course.dept %></h4>
+              <h6><%= course.name %></h6>
+            </div>
+          </a>
+          <% }) %> <% } else { %>
           <p>There are no courses to display...</p>
-        <% } %>
-        
+          <% } %>
+        </div>
       </div>
       <!-- End of database display code -->
-    
-    <footer>
-      <%- include("./partials/footer.ejs") %>
-    </footer>    
+    </div>
+    <footer><%- include("./partials/footer.ejs") %></footer>
   </body>
 </html>
