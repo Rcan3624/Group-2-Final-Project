@@ -6,6 +6,10 @@
     .pics {
         min-width: 50%;
     }
+
+    .oops {
+        min-width: 50%;
+    }
 }
 
 article {
@@ -16,7 +20,7 @@ article {
 }
 
 .body {
-    background: linear-gradient(0.25turn,#DFD3C3,#F8EDE3);
+    background: linear-gradient(0.25turn, #DFD3C3, #F8EDE3);
 }
 
 nav {
@@ -50,17 +54,17 @@ nav {
     text-align: center;
 }
 
-.logo {  
-  display: block;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5%;
-  max-width: 20%;
+.logo {
+    display: block;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    max-width: 20%;
 }
 
-.photo { 
+.photo {
     max-width: 25%;
 
 }
@@ -72,10 +76,13 @@ nav {
 }
 
 .oops {
-    width: 40%;
+    max-width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.signin{
+.signin {
     margin: 2%;
     text-align: justify;
 }
