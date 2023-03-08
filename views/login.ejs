@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Read head.ejs file from partials folder-->
@@ -7,70 +7,120 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
+    
+        <h1 class="h1">Sign In</h1>
+        <img class="logo rounded-pill float-lg-none" src="/images/logo.jpeg" alt="SCC Logo">
 
-    <h1 class="h1">Sign In</h1>
-    <img
-      class="logo rounded-pill float-lg-none"
-      src="/images/logo.jpeg"
-      alt="SCC Logo"
-    />
+        <div class="container">
+          <div class="media">
+            <div class="media-body">
+              <form>
+                <!-- Email Form -->
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" class="form-control" name="email" placeholder="Enter email address" >
+                  <div class="email error"></div>            
+                  <!-- Password Form -->
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="Enter password">
+                  <small id="emailHelp" class="form-text text-muted">*We will never share your email with anyone else.</small>
+                  <div class="password error"></div>          
+                </div>
+                
+                <!-- Drop Down Button -->
+                <div class="dropdown show">
+                  <a
+                    class="btn btn-primary dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Select One:
+                  </a>
+    
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Student</a>
+                    <a class="dropdown-item" href="#">Teacher</a>
+                  </div>
+                </div>
+                <!-- End of drop down button code -->
+                
+                <button>Submit</button> 
 
-    <div class="container">
-      <div class="media">
-        <div class="media-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-              />
-              <small id="emailHelp" class="form-text text-muted"
-                >*We will never share your email with anyone else.</small
-              >
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                placeholder="Enter password"
-              />
-            </div>
+              </form>  
+            </div>  
+          </div>
+          <!-- I couldn't get the image to display the way it was supposed to without the login form sinking to the bottom of the page -->
+          <img class="pics float-right" src="/images/student2.png"  alt="Student">   
+        </div>  
+        
+        
+          
+          <script>
+            const form = document.querySelector('form');
+            const emailError = document.querySelector('.email.error');
+            const passwordError = document.querySelector('.password.error');
+            
+            // Submit Button Event code
+            form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              
+              //reset errors
+                emailError. textContent = '';
+                passwordError.textContent = '';
+                
+      
+              //get values
+              const email = form.email.value;
+              const password = form.password.value;
+              
+  
+      
+             try {
 
-            <div class="dropdown show">
-              <a
-                class="btn btn-primary dropdown-toggle"
-                href="#"
-                role="button"
-                id="dropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Select One:
-              </a>
+              const res = await fetch('/sunnydale/login', {
+                method: 'POST',
+                body: JSON.stringify({
+                  email: email,
+                  password: password
+                  
+                }),
+                headers: {'Content-Type': 'application/json'}
+              });
 
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Student</a>
-                <a class="dropdown-item" href="#">Teacher</a>
-              </div>
-            </div>
-          </form>
-        </div>
-        <img
-          class="pics float-right"
-          src="/images/student2.png"
-          alt="Student"
-        />
-      </div>
-    </div>
+              const data = await res.json();
+              console.log(data);
 
+              if (data.errors) {
+                emailError. textContent = data.errors.email;
+                passwordError.textContent = data.errors.password;
+              }
+
+              if (data.user) {
+                location.assign('/');
+              }
+             }
+             catch (err) {
+
+              console.log(err);
+
+             };
+            });
+        </script>
+        
+
+          <!--<button type="submit" class="btn btn-primary ml-3">Submit</button>
+        </form>-->
+        
     <!-- Read footer.ejs file from partials folder-->
-    <footer><%- include("./partials/footer.ejs") %></footer>
+    <footer>
+      <%- include("./partials/footer.ejs") %>
+    </footer>
   </body>
+  </body>
+  
+
 </html>

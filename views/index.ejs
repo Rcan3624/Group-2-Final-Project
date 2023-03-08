@@ -61,24 +61,7 @@
           </p>
         </div>
       </div>
-
-      <!-- Display Database courses on front page -->
-      <div class="container">
-        <h2>All Courses</h2>
-        <div class="row">
-          <% if (courses.length > 0) { %> <% courses.forEach(course => { %>
-          <a class="single" href="/sunnydale/<%= course._id %>">
-            <div class="py-3 px-4">
-              <h4><%= course.dept %></h4>
-              <h6><%= course.name %></h6>
-            </div>
-          </a>
-          <% }) %> <% } else { %>
-          <p>There are no courses to display...</p>
-          <% } %>
-        </div>
-      </div>
-      <!-- End of database display code -->
+     
     </div>
     <footer><%- include("./partials/footer.ejs") %></footer>
   </body>
