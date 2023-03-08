@@ -1,18 +1,18 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const Course = require('./models/Course');
-const Enroll = require('./models/enrollment');
+//const Enroll = require('./models/enrollment');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const {requireAuth, checkUser} = require('./middleware/authmiddleware');
+const courseRoutes = require('./routes/courseRoutes');
 
 
 // express app
 const app = express();
 
 // listen for requests
-const dBURI = 'mongodb+srv://grouptwo:schoolyard@group2.50g5lu7.mongodb.net/test?retryWrites=true&w=majority';
+const dBURI = 'mongodb+srv://grouptwo:schoolyard@group2.50g5lu7.mongodb.net/school?retryWrites=true&w=majority';
 mongoose.set('strictQuery', true);
 mongoose.connect(dBURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000))
@@ -84,6 +84,10 @@ app.get('/sunnydale/admission', (req, res) => {
 
 //login and signup routes
 app.use(authRoutes);
+
+
+//course display
+app.use('/sunnydale', courseRoutes);
 
 
 

@@ -21,14 +21,79 @@
       
       <label for="desc">Course Description</label>
       <input type="text" class="form-control" name="desc"/>
+      <div class="desc error"></div>
     </div>
   </div>
+  <button>Submit</button> 
   </form>
       
-      <button>Add</button> <button>Edit</button>
+  <h2>Course list</h2>
+  <% if (courses.length > 0) { %>
+      <% courses.forEach(blog => { %>
 
+      <a class="single" href="/sunnydale/create<%= crea._id%>">
+      <h3 class="dept"><%= crea.dept %></h3>
+      <p class="name"><%= crea.name %></p>
+      </a>
+      
+      <% }) %>
+  <% } else { %>
+      <p>There are no courses to display at this time</p>
+      <% } %>
+</div>
 
+<!--form script for adding courses to database-->
+<!--
+<script>
+  const form = document.querySelector('form');
+  const deptError = document.querySelector('.dept.error');
+  const nameError = document.querySelector('.name.error');
+  const descError = document.querySelector('.desc.error');
 
+  form.addEventListener('submit', async (e) =>{
+    e.preventDefault();
+
+    deptError. textContent = '';
+    nameError.textContent = '';
+    descError.textContent = '';
+
+    const dept = form.dept.value;
+    const name = form.name.value;
+    const desc = form.desc.value;
+
+ 
+      try {
+              const res = await fetch('/sunnydale/create', {
+                method: 'POST',
+                body: JSON.stringify({
+                  dept: dept,
+                  name: name,
+                  desc: desc
+                  
+                }),
+                headers: {'Content-Type': 'application/json'}
+              });
+
+              const data = await res.json();
+              console.log(data);
+              if (data.errors) {
+                deptError. textContent = data.errors.dept;
+                nameError.textContent = data.errors.name;
+                descError.textContent = data.errors.desc;
+              
+              }
+              if (data.crea) {
+                location.assign('/');
+              }
+             }
+             catch (err) {
+
+              console.log(err);
+
+             }
+          });
+
+</script> -->
 
   <footer>
     <%- include("./partials/footer.ejs") %>

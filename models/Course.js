@@ -11,7 +11,7 @@ const courseSchema = new Schema({
         required: true
     },
     desc: {
-        type:String
+        type: String
     }
 
 }, {timestamp: true});
