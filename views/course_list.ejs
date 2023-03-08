@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Read head.ejs file from partials folder-->
@@ -7,10 +7,18 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
-      <h1 class="h1">Available Courses</h1>
-      <img class="logo rounded-pill float-lg-none" src="/images/logo.jpeg" alt="SCC Logo">
 
-      <article>
+    <div class="container">
+      <h1 class="h1">Available Courses</h1>
+      <img
+        class="logo rounded-pill float-lg-none"
+        src="/images/logo.jpeg"
+        alt="SCC Logo"
+      />
+    </div>
+
+    <div class="container">
+      <h4>Select from:</h4>
       <div class="card-deck d-flex flex-column mx-2">
         <div class="d-flex">
           <div class="card-body">
@@ -23,7 +31,7 @@
             <p class="card-text">Urban Anthropology</p>
             <p class="card-text">Biocultural Anthropology</p>
           </div>
-          
+
           <div class="card-body">
             <h5 class="card-title">Art</h5>
             <p class="card-text">Interior Design</p>
@@ -32,7 +40,7 @@
             <p class="card-text">Music Studies</p>
             <p class="card-text">Systematic Musicology</p>
           </div>
-          
+
           <div class="card-body">
             <h5 class="card-title">Business</h5>
             <p class="card-text">International Trade</p>
@@ -41,7 +49,7 @@
           <div class="card-body">
             <h5 class="card-title">Civics</h5>
             <p class="card-text">Religions of East Asia</p>
-          </div>        
+          </div>
         </div>
 
         <div class="d-flex">
@@ -114,11 +122,9 @@
           </div>
         </div>
       </div>
-    </article>
-           
+    </div>
+
     <!-- Read footer.ejs file from partials folder-->
-    <footer>
-      <%- include("./partials/footer.ejs") %>
-    </footer>
-  </body>  
+    <footer><%- include("./partials/footer.ejs") %></footer>
+  </body>
 </html>

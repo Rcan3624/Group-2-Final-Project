@@ -54,6 +54,7 @@ app.get('/sunnydale/degrees', (req, res) => {
   res.render('degrees', { title: 'Degrees' })
 });
 
+// Note: Clicking on the Available courses link takes you to the login screen
 // Course List Page
 app.get('/sunnydale/course_list', requireAuth, (req, res) => {
   res.render('course_list', { title: 'Course List' })

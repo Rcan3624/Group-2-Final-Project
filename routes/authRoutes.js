@@ -3,8 +3,7 @@ const authController = require('../controllers/authControllers')
 const courseController = require('../controllers/courseController')
 
 const router = Router();
-
-//router.get('/sunnydale', courseController.course_index);                     // Code at line 7 currently not working
+                 // Code at line 7 currently not working
 router.get('/create')
 router.get('/sunnydale/signup', authController.signup_get);
 router.post('/sunnydale/signup', authController.signup_post);

@@ -7,15 +7,24 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
-      <h1 class="h1">Degrees</h1>
-      <img class="logo rounded-pill float-lg-none" src="/images/logo.jpeg" alt="SCC Logo">
-      <article>      
-      <h3>Your new career begins now!</a></h3>
-      <p><img class="float-right mx-5 my-5" src="/images/degrees.png"  alt="Academic Cap" style="max-width: 30%;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi in quos voluptatibus ad unde alias nesciunt quasi saepe amet, deleniti odit nulla voluptas. Vitae eos, consequatur repudiandae sed cumque possimus?</p>
-      <p>Officiis doloribus quibusdam, aperiam odio unde voluptatum natus hic repudiandae eligendi laudantium, consectetur voluptatibus, doloremque quis! Dicta maxime ipsa delectus, similique impedit culpa repellendus tenetur, doloremque expedita exercitationem possimus repudiandae.</p>
-      <p>Iusto, dolor pariatur. Quaerat, voluptatum consectetur! Impedit unde aspernatur ex quibusdam, molestias nam blanditiis dicta rerum harum, deserunt, maxime eveniet ea ratione omnis quia a esse laudantium praesentium. Magnam, ad?</p>
-      <p>Sapiente ipsum aliquid, molestiae, ut adipisci deserunt enim iusto eveniet earum nulla a exercitationem impedit doloribus quasi facere suscipit pariatur, voluptate corrupti odit reiciendis repellat unde at. Expedita, odio tempore?</p>
-      </article>    
+
+    <div class="container">
+    <h1 class="h1">Degrees</h1>
+    <img class="logo rounded-pill float-lg-none" src="/images/logo.jpeg" alt="SCC Logo">
+    </div>
+
+    <div class="container">   
+      <div class="media">
+        <div class="media-body">
+          <h3>Your new career begins now!</a></h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi in quos voluptatibus ad unde alias nesciunt quasi saepe amet, deleniti odit nulla voluptas. Vitae eos, consequatur repudiandae sed cumque possimus?</p>
+          <img class="pics float-right" src="/images/degrees.png"  alt="Academic Cap">
+          <p>Officiis doloribus quibusdam, aperiam odio unde voluptatum natus hic repudiandae eligendi laudantium, consectetur voluptatibus, doloremque quis! Dicta maxime ipsa delectus, similique impedit culpa repellendus tenetur, doloremque expedita exercitationem possimus repudiandae.</p>
+          <p>Iusto, dolor pariatur. Quaerat, voluptatum consectetur! Impedit unde aspernatur ex quibusdam, molestias nam blanditiis dicta rerum harum, deserunt, maxime eveniet ea ratione omnis quia a esse laudantium praesentium. Magnam, ad?</p>
+          <p>Sapiente ipsum aliquid, molestiae, ut adipisci deserunt enim iusto eveniet earum nulla a exercitationem impedit doloribus quasi facere suscipit pariatur, voluptate corrupti odit reiciendis repellat unde at. Expedita, odio tempore?</p>
+        </div>
+      </div>         
+    </div>    
     
     <footer>
       <%- include("./partials/footer.ejs") %>

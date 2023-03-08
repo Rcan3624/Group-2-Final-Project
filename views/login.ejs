@@ -11,29 +11,60 @@
         <h1 class="h1">Sign In</h1>
         <img class="logo rounded-pill float-lg-none" src="/images/logo.jpeg" alt="SCC Logo">
 
-        <article class="float-left" style="min-width: 50%;">
-        <form>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" class="form-control" name="email" placeholder="Enter email address" >
-            <div class="email error"></div>            
-          
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" placeholder="Enter password">
-            <div class="password error"></div>          
-          </div>
-            
-            <button>Submit</button>
+        <div class="container">
+          <div class="media">
+            <div class="media-body">
+              <form>
+                <!-- Email Form -->
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" class="form-control" name="email" placeholder="Enter email address" >
+                  <div class="email error"></div>            
+                  <!-- Password Form -->
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="Enter password">
+                  <small id="emailHelp" class="form-text text-muted">*We will never share your email with anyone else.</small>
+                  <div class="password error"></div>          
+                </div>
+                
+                <!-- Drop Down Button -->
+                <div class="dropdown show">
+                  <a
+                    class="btn btn-primary dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Select One:
+                  </a>
+    
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Student</a>
+                    <a class="dropdown-item" href="#">Teacher</a>
+                  </div>
+                </div>
+                <!-- End of drop down button code -->
+                
+                <button>Submit</button> 
 
-          </div>                   
-          </form>
+              </form>  
+            </div>  
+          </div>
+          <!-- I couldn't get the image to display the way it was supposed to without the login form sinking to the bottom of the page -->
+          <img class="pics float-right" src="/images/student2.png"  alt="Student">   
+        </div>  
+        
+        
           
           <script>
             const form = document.querySelector('form');
             const emailError = document.querySelector('.email.error');
             const passwordError = document.querySelector('.password.error');
             
-        
+            // Submit Button Event code
             form.addEventListener('submit', async (e) => {
               e.preventDefault();
               
@@ -80,8 +111,6 @@
             });
         </script>
         
-        </article>
-        <img class="float-right px-3 mr-2 my-5" src="/images/student2.png"  alt="Student" style="max-width: 30%; min-width: 30%;"> 
 
           <!--<button type="submit" class="btn btn-primary ml-3">Submit</button>
         </form>-->
