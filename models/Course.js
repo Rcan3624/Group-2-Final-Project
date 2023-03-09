@@ -16,5 +16,6 @@ const courseSchema = new Schema({
 
 }, {timestamp: true});
 
-const Course = mongoose.model('course', courseSchema)
+const Course = mongoose.model('Course', courseSchema)
 module.exports = Course
+

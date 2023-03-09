@@ -20,30 +20,30 @@
       <div class="name error"></div> 
       
       <label for="desc">Course Description</label>
-      <input type="text" class="form-control" name="desc"/>
+      <textarea  class="form-control" id="desc" name="desc"></textarea> 
       <div class="desc error"></div>
     </div>
   </div>
-  <button>Submit</button> 
+  <button type="submit">Add</button> 
   </form>
-      
+  <div>    
   <h2>Course list</h2>
   <% if (courses.length > 0) { %>
-      <% courses.forEach(blog => { %>
+      <% courses.forEach(course => { %>
 
-      <a class="single" href="/sunnydale/create<%= crea._id%>">
-      <h3 class="dept"><%= crea.dept %></h3>
-      <p class="name"><%= crea.name %></p>
+      <a class="single" href="/sunnydale/<%= courses._id%>">
+      <h3 class="dept"><%= courses.dept %></h3>
+      <p class="name"><%= courses.name %></p>
       </a>
       
       <% }) %>
   <% } else { %>
-      <p>There are no courses to display at this time</p>
+      <p>There are no courses to display at the moment</p>
       <% } %>
 </div>
 
 <!--form script for adding courses to database-->
-<!--
+
 <script>
   const form = document.querySelector('form');
   const deptError = document.querySelector('.dept.error');
@@ -93,7 +93,7 @@
              }
           });
 
-</script> -->
+</script> 
 
   <footer>
     <%- include("./partials/footer.ejs") %>

@@ -1,17 +1,18 @@
-<--TODO Modify for Group Project-->
+<!--TODO Modify for Group Project-->
 <html lang="en">
 <%- include("./partials/head.ejs") %>
 
 <body>
   <%- include("./partials/nav.ejs") %>
 
-  <div class="details content">
-    <h2><%= class.name %></h2>
-    <div class="content">
-      <p><%= class.dept %></p>
+  <div>
+    <h2><%= course.dept %></h2>
+    <div>
+      <p><%= course.name %></p>
+      <p><%= course.desc %></p>
     </div>
     <!--Delete Button Code-->
-    <a class="delete" data-doc="<%= class._id %>">delete</a>
+    <a class="delete" data-doc="<%= course._id %>">delete</a>
   </div>
 
   <%- include("./partials/footer.ejs") %>

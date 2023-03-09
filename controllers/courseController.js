@@ -1,13 +1,17 @@
-const Course = require('../models/Course');
+const Course = require('../models/course');
 
 
 
 
-
-
-/*module.exports.create_get = (req, res) =>{
-    res.render('create', {title: 'Create'});
+const handleErrors = (err) => {
+    console.log(err.message, err.code);
+    let errors = {
+        dept: '',
+        name: '',
+        desc: ''
+    };
 }
+
 
 module.exports.create_post = async (req, res) => {
     const {dept, name, desc} = req.body;
@@ -15,7 +19,7 @@ module.exports.create_post = async (req, res) => {
     try {
 
         const crea = await Course.create({dept, name, desc});
-        crea.save();
+        res.status(201).json({crea: crea._id});
 
     }
     catch (err) {
@@ -23,19 +27,6 @@ module.exports.create_post = async (req, res) => {
         res.status(400).json({errors})
     }
 }
-
-
-
-/*const course_details = (req, res) =>{
-    const id = req.params.id;
-    Course.findById(id)
-    .then((result) =>{
-        res.render('course_list', { course: result, title:'Courses'})
-    })
-    .catch((err)=>{
-        console.log(err);
-    });
-}*/
 
 /// Might not be needed ///
  module.exports.course_index = (req, res) => {
@@ -48,11 +39,23 @@ module.exports.create_post = async (req, res) => {
     })
 };
 
+module.exports.course_details = (req, res) =>{
+    const id = req.params.id;
+    Course.findById(id)
+    .then((result) =>{
+        res.render('details', { course: result, title:'Courses'})
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
+};
+
+//Displays course database information
 module.exports.create_get = (req, res) =>{
-    res.render('create', {title: 'Create a new Blog'}
+    res.render('create', {courses: req.body, title: 'create'}
 )};
 
-module.exports.create_post = (req, res) =>{
+/*module.exports.create_post = (req, res) =>{
     const crea = new Course(req.body);
     crea.save()
         .then((result)=>{
