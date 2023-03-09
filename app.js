@@ -12,7 +12,7 @@ const courseRoutes = require('./routes/courseRoutes');
 const app = express();
 
 // listen for requests
-const dBURI = 'mongodb+srv://grouptwo:schoolyard@group2.50g5lu7.mongodb.net/school?retryWrites=true&w=majority';
+const dBURI = 'mongodb+srv://grouptwo:schoolyard@group2.50g5lu7.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.set('strictQuery', true);
 mongoose.connect(dBURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000))
@@ -60,7 +60,7 @@ app.get('/sunnydale/degrees', (req, res) => {
 });
 
 // Course List Page
-app.get('/sunnydale/course_list', requireAuth, (req, res) => {
+app.get('/sunnydale/course_list', (req, res) => {
   res.render('course_list', { title: 'Course List' })
 });
 
