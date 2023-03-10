@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const Course = require('../models/Course');
+//const Course = require('../models/Course');
 const jwt = require('jsonwebtoken');
 
 //handle errors
@@ -11,7 +11,10 @@ const handleErrors = (err) => {
         fName: '',
         lName: '',
         address: '',
-        zipCode: ''
+        zipCode: '',
+       /* dept: '',
+        name: '',
+        desc: ''*/
     };
 
     //incorrect email
@@ -48,10 +51,10 @@ const createToken = (id) => {
 }
 
 //Get requests
-
-module.exports.create_get = (req, res) =>{
+//create_get moved to course controllers
+/*module.exports.create_get = (req, res) =>{
     res.render('create', {title: 'Create'});
-}
+}*/
 
 module.exports.signup_get = (req, res) =>{
     res.render('signup', {title: 'Signup' });
@@ -103,20 +106,26 @@ module.exports.login_post = async (req, res) =>{
         res.status(400).json({errors})
     }
 }
-
-module.exports.create_post =(req, res) => {
-    const {dept, name} = req.body;
+//Moved to courseControllers
+/*module.exports.create_post = async (req, res) => {
+    const {dept, name, desc} = req.body;
 
     try {
+
+        const crea = await Course.create({dept, name, desc});
+        crea.save();
 
     }
     catch (err) {
         const errors = handleErrors(err);
         res.status(400).json({errors})
     }
-}
+}*/
 
 module.exports.logout_get = (req, res) => {
     res.cookie('jwt', '', {maxAge: 1});
     res.redirect('/');
 }
+
+//course controlls
+
