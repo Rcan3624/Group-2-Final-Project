@@ -6,6 +6,9 @@ const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const {requireAuth, checkUser} = require('./middleware/authmiddleware');
 const courseRoutes = require('./routes/courseRoutes');
+const bodyParser = require('body-Parser');
+const Course = require('./models/course');
+const { findById } = require('./models/course');
 
 
 // express app
@@ -27,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(bodyParser.urlencoded({extended: true}));
 
 // https://youtu.be/bxsemcrY4gQ?list=PLKycv9hdyoo3VewM8LEcQ8Iis-qgjwTtG&t=1891
 //TODO - 
@@ -40,13 +43,16 @@ app.use(cookieParser());
   //res.render('create', { title: 'Create a new course' });
 //});
 
+// mongoose and mongo routes
+
+
 
 //user check
 app.get('*', checkUser);
 
 // Home page
 app.get('/', (req, res) => {
-  res.redirect('/sunnydale');
+  res.redirect('/sunnydale',);
 });
 
 // Home page redirect
@@ -59,10 +65,7 @@ app.get('/sunnydale/degrees', (req, res) => {
   res.render('degrees', { title: 'Degrees' })
 });
 
-// Course List Page
-app.get('/sunnydale/course_list', (req, res) => {
-  res.render('course_list', { title: 'Course List' })
-});
+
 
 //profile
 app.get('/sunnydale/profile', requireAuth, (req, res) => {
@@ -78,6 +81,53 @@ app.get('/sunnydale/faq', (req, res) => {
 app.get('/sunnydale/admission', (req, res) => {
   res.render('admission', { title: 'Admission' })
 });
+
+
+//course routes
+
+app.get('/sunnydale/create', (req, res)=>{
+  Course.find()
+    .then((result)=>{
+      res.render('create', {title: 'Courses', courses: result})
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  
+});
+
+app.get('/sunnydale/create', (req, res)=>{
+  res.render('create', {title: 'Create'})
+});
+
+app.get('/sunnydale/course_list', (req, res)=>{
+  Course.find()
+    .then((result)=>{
+      res.render('course_list', {title: 'Course List', courses: result})
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  
+});
+
+app.get('/sunnydale/course_list', (req, res)=>{
+  res.render('course_list', {title: 'Course List'})
+});
+
+app.post('/create', (req, res) => {
+  const course = new Course(req.body);
+
+  course.save()
+  .then((result)=>{
+    res.redirect('/sunnydale/create')
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+})
+
+
 
 
 

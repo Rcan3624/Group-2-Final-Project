@@ -7,7 +7,26 @@
   <body class="body">
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
-      <h1 class="h1">Available Courses</h1>
+
+
+
+
+    <h2>Course list</h2>
+    <% if (courses.length > 0) { %>
+         <% courses.forEach(course => { %>
+   
+         
+         <h3 class="dept"><%= course.dept %></h3> <h4 class="name"><%= course.name %></h4>
+         
+         </a>
+         
+         <% }) %>
+     <% } else { %>
+         <p>There are no courses to display at the moment</p>
+         <% } %>
+   </div>
+   
+     <!-- <h1 class="h1">Available Courses</h1>
 
       <div class="card-deck d-flex flex-column mx-2">
         <div class="d-flex">
@@ -112,6 +131,7 @@
           </div>
         </div>
       </div>
+    -->
            
     <!-- Read footer.ejs file from partials folder-->
     <footer>
