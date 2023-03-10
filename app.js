@@ -83,7 +83,7 @@ app.get('/sunnydale/admission', (req, res) => {
 });
 
 
-//course routes
+//Course Routes
 
 app.get('/sunnydale/create', (req, res)=>{
   Course.find()
@@ -137,7 +137,7 @@ app.use(authRoutes);
 
 
 //course display
-app.use('/sunnydale', courseRoutes);
+//app.use('/sunnydale', courseRoutes);
 
 
 
