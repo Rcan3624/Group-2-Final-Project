@@ -1,12 +1,14 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-// const Course = require('./models/Course');
-// const Enroll = require('./models/enrollment');
-// const User = require('./models/User');
+//const Enroll = require('./models/enrollment');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const {requireAuth, checkUser} = require('./middleware/authmiddleware');
+const courseRoutes = require('./routes/courseRoutes');
+const bodyParser = require('body-Parser');
+const Course = require('./models/course');
+const { findById } = require('./models/course');
 
 
 // express app
@@ -28,15 +30,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: true}));
 
 
-// LOGIN STuFF
+
 //user check
 app.get('*', checkUser);
 
-//login and signup routes
-app.use(authRoutes);
-// END OF LOGIN STUFF
+
 
 // URL STUFF
 // Home page
@@ -54,11 +55,6 @@ app.get('/sunnydale/degrees', (req, res) => {
   res.render('degrees', { title: 'Degrees' })
 });
 
-// Note: Clicking on the Available courses link takes you to the login screen
-// Course List Page
-app.get('/sunnydale/course_list', requireAuth, (req, res) => {
-  res.render('course_list', { title: 'Course List' })
-});
 
 //profile
 app.get('/sunnydale/profile', requireAuth, (req, res) => {
@@ -74,6 +70,73 @@ app.get('/sunnydale/faq', (req, res) => {
 app.get('/sunnydale/admission', (req, res) => {
   res.render('admission', { title: 'Admission' })
 });
+
+// Checkout Page
+app.get('/sunnydale/checkout', (req, res) => {
+  res.render('checkout', { title: 'Checkout'})
+})
+
+// Confirm Page
+app.get('/sunnydale/confirm', (req, res) => {
+  res.render('confirm', { title: 'Confirm' })
+})
+
+
+//Course Routes
+app.get('/sunnydale/create', (req, res)=>{
+  Course.find()
+    .then((result)=>{
+      res.render('create', {title: 'Courses', courses: result})
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  
+});
+
+app.get('/sunnydale/create', (req, res)=>{
+  res.render('create', {title: 'Create'})
+});
+
+app.get('/sunnydale/course_list', (req, res)=>{
+  Course.find()
+    .then((result)=>{
+      res.render('course_list', {title: 'Course List', courses: result})
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  
+});
+
+app.get('/sunnydale/course_list', (req, res)=>{
+  res.render('course_list', {title: 'Course List'})
+});
+
+app.post('/create', (req, res) => {
+  const course = new Course(req.body);
+
+  course.save()
+  .then((result)=>{
+    res.redirect('/sunnydale/create')
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+})
+
+
+
+
+
+
+//login and signup routes
+app.use(authRoutes);
+
+
+//course display
+//app.use('/sunnydale', courseRoutes);
+
 
 
 // 404 page

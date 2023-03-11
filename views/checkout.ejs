@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Read head.ejs file from partials folder-->
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body class="body">
+    <!-- Read nav.ejs file from partials folder-->
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="container">
+      <img class="pics float-right" src="/images/cart.png" alt="Cart"/>
+      <form action="/action_page.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city"><br>
+        <!-- I wasn't sure if I wanted to add a state option since community colleges are state based and don't have multiple locations, but this one is fictional so I'll give it some thought -->
+        <!-- <label for="state">State:</label><br>
+        <select id="state" name="state">
+          <option value="Alabama">AL</option>
+          <option value="Alaska">AK</option>
+          <option value="Arizona">AZ</option>
+          <option value="Arkansas">AR</option>
+        </select><br><br> -->
+        <label for="zipcode">Zipcode:</label><br>
+        <input type="number" id="zipcode" name="zipcode"><br><br>
+        <!-- Will add if else statment if fields are left empty -->
+        <input type="button" onclick=window.location.href="/sunnydale/confirm" value="Purchase"> 
+      </form>
+      
+    </div>
+    <footer><%- include("./partials/footer.ejs") %></footer>
+  </body>
+</html>
