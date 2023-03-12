@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Read head.ejs file from partials folder-->
@@ -8,25 +8,53 @@
     <!-- Read nav.ejs file from partials folder-->
     <%- include("./partials/nav.ejs") %>
 
+    <div class="container">
+      <h1 class="h1">Available Courses</h1>
+      <img
+        class="logo rounded-pill float-lg-none"
+        src="/images/logo.jpeg"
+        alt="SCC Logo"
+      />
+    </div>
 
+    <div class="container">
+      <h2>Course list</h2>
+      <br />
+    </div>
 
+    <div class="container">
+      <% if (courses.length > 0) { %> <% courses.forEach(course => { %>
 
-    <h2>Course list</h2>
-    <% if (courses.length > 0) { %>
-         <% courses.forEach(course => { %>
-   
+      <table class="table table-sm table-borderless d-inline text-center">
+        <thead>
+          <tr>
+            <th scope="col"><%= course.dept %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <td style="width: 10rem; overflow-wrap: break-word">
+            <button type="button" class="btn btn-link">
+              <%= course.name %>
+            </button>
+          </td>
+        </tbody>
+      </table>
+
+      <!-- <ul class="list-group"></ul>
+          <li class="list-group-item text-uppercase font-weight-bold"></li>
+          <li class="list-group-item"></li>
+          
+         <h5 class="dept"></h5> 
+         <h6 class="name"></h6> 
          
-         <h3 class="dept"><%= course.dept %></h3> <h4 class="name"><%= course.name %></h4>
-         
-         </a>
-         
-         <% }) %>
-     <% } else { %>
-         <p>There are no courses to display at the moment</p>
-         <% } %>
-   </div>
-   
-     <!-- <h1 class="h1">Available Courses</h1>
+         </ul> -->
+
+      <% }) %> <% } else { %>
+      <p>There are no courses to display at the moment</p>
+      <% } %>
+    </div>
+
+    <!-- <h1 class="h1">Available Courses</h1>
 
       <div class="card-deck d-flex flex-column mx-2">
         <div class="d-flex">
@@ -132,10 +160,8 @@
         </div>
       </div>
     -->
-           
+
     <!-- Read footer.ejs file from partials folder-->
-    <footer>
-      <%- include("./partials/footer.ejs") %>
-    </footer>
-  </body>  
+    <footer><%- include("./partials/footer.ejs") %></footer>
+  </body>
 </html>

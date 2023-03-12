@@ -1,43 +1,64 @@
-
 <!-- Bootstrap navbar with collapsable menu toggler that activates for smaller browsers, includes logo -->
 <nav class="navbar navbar-expand-md navbar-light sticky-top mb-5">
-  <a class="navbar-brand" href="/"><img src="/logo.jpeg" alt="SCC Logo" width="50" height="50"class="rounded-pill"></a>
-    
-    <!-- Navbar links with toggler button for smaller browsers  -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">          
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/sunnydale/admission">Admission</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/sunnydale/degrees">Degrees</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/sunnydale/course_list">Available Courses</a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/sunnydale/faq">FAQ</a>
-          </li>
-      </ul>
-      <a class="nav-link" href="/sunnydale/create">Create Courses</a>
-       <% if (user) { %>
-        
-          
-       
-        Welcome, <%= user.email %>
-      <a class="btn btn-primary my-2 my-sm-0" href="/sunnydale/logout" role="button">Sign out</a>
-      <% } else { %>
-      <!-- Sign in button -->
-      <a class="btn btn-primary my-2 my-sm-0" href="/sunnydale/login" role="button">Sign In</a>
-      <% } %>
-      
-    </div>
-  </nav>
+  <a class="navbar-brand" href="/"
+    ><img
+      src="/logo.jpeg"
+      alt="SCC Logo"
+      width="50"
+      height="50"
+      class="rounded-pill"
+  /></a>
+
+  <!-- Navbar links with toggler button for smaller browsers  -->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"></li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sunnydale/admission">Admission</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sunnydale/degrees">Degrees</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sunnydale/course_list">Available Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sunnydale/faq">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sunnydale/create">Create Courses</a>
+      </li>
+    </ul>
+
+    <% if (user) { %> Welcome, <%= user.email %>
+    <a
+      class="btn btn-primary my-2 my-sm-0"
+      href="/sunnydale/logout"
+      role="button"
+      >Sign out</a
+    >
+    <% } else { %>
+    <!-- Sign in button -->
+    <a
+      class="btn btn-primary my-2 my-sm-0"
+      href="/sunnydale/login"
+      role="button"
+      >Sign In</a
+    >
+    <% } %>
+  </div>
+</nav>
