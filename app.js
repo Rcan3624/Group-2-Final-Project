@@ -83,16 +83,40 @@ app.get('/sunnydale/confirm', (req, res) => {
 
 
 //Course Routes
+app.get('/sunnydale/create/:id', (req, res)=>{
+  const id = req.params.id;
+  Course.findById(id)
+  .then((result) =>{
+      res.render('create', { courses: result, course: result, title:'Create Course'})
+  })
+  .catch((err)=>{
+      console.log(err);
+  });
+});
 app.get('/sunnydale/create', (req, res)=>{
   Course.find()
     .then((result)=>{
-      res.render('create', {title: 'Courses', courses: result})
+      res.render('create', {title: 'Courses', courses: result, course: result})
     })
     .catch((err)=>{
       console.log(err);
     })
   
 });
+
+
+app.get('sunnydale/:id', (req, res) => {
+  const id = req.params.id;
+  Course.findById(id)
+  .then(result => {
+    res.render('details', { course_list: result, title: 'Course List'});
+  })
+  .catch(err => {
+    console.log(err);
+  });
+})
+
+
 
 app.get('/sunnydale/create', (req, res)=>{
   res.render('create', {title: 'Create'})
@@ -125,6 +149,17 @@ app.post('/create', (req, res) => {
   })
 })
 
+app.delete('/create/:id', (req, res)=>{
+  const id = req.params.id;
+
+  Course.findByIdAndDelete(id)
+  .then(result => {
+      res.json({redirect: '/sunnydale/create/'})
+  })
+  .catch(err => {
+      console.log(err)
+  })
+})
 
 
 
