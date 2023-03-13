@@ -143,7 +143,7 @@ app.get('/sunnydale/update/:id', (req, res)=>{
 });
 
 app.get('/sunnydale/update', (req, res)=>{
-  Course.find()
+  Course.findByIdAndUpdate(id)
     .then((result)=>{
       res.render('update', {title: 'Update', courses: result, course: result})
     })
