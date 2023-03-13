@@ -5,7 +5,16 @@
 
 <body>
   <%- include("./partials/nav.ejs") %>
+<style>
+table {
+  width: 100%;
+  
+}
+th {
+  height: 70px;
+}
 
+</style>
  
 
   <form action="/create" method="POST">
@@ -32,22 +41,26 @@
 
  
   
-  <div class="table-responsive-md">    
-  <table class="table table-bordered table-sm">
+  <div class="table-responsive-md"> 
+    <form action="/sunnydale/create/:id" method="delete"> 
+  <table class="table table-bordered table-sm table-hover">
     <thead>
     <tr>
       <th scope="col">Dept</th>
       <th scope="col">Course Name</th>
+      <th scope="col">Description</th>
 
     </tr>
     </thead>
+    <tbody>
  <% if (courses.length > 0) { %>
       <% courses.forEach(course => { %>
 
       <tr>
         <td> <%= course.dept %> </td>
         <td> <%= course.name %> </td>
-        <td> <a class="btn btn-success delete" data-doc="<%= course._id%>">Delete</a> </td>
+        <td> <%= course.desc %> </td>
+        <td> <a class="btn btn-success delete" data-doc="<%= course._id%>">Delete</a> <a class="btn btn-success" href="/sunnydale/update/<%= course._id%>" method="update">Edit</a> </td>
       </tr>
       
       
@@ -55,15 +68,15 @@
   <% } else { %>
       <p>There are no courses to display at the moment</p>
       <% } %>
+    </tbody>
   </table>
+</form>  
 </div>
 
 <script>
   const trashcan = document.querySelector('a.delete');
-
   trashcan.addEventListener('click', (e) =>{
       const endpoint = `/create/${trashcan.dataset.doc}`;
-
       fetch(endpoint, {
       method: 'DELETE'})
       .then((response)=> response.json())

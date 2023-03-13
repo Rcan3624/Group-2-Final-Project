@@ -20,19 +20,19 @@
           <li class="nav-item">
             <a class="nav-link" href="/sunnydale/degrees">Degrees</a>
           </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/sunnydale/course_list">Available Courses</a>
-        </li>
+        
           <li class="nav-item">
             <a class="nav-link" href="/sunnydale/faq">FAQ</a>
           </li>
       </ul>
-      <a class="nav-link" href="/sunnydale/create">Create Courses</a>
+      
        <% if (user) { %>
         
           
        
         Welcome, <%= user.email %>
+        <a class="nav-link" href="/sunnydale/course_list">Register</a>
+        <a class="nav-link" href="/sunnydale/create">Create Courses</a>
       <a class="btn btn-primary my-2 my-sm-0" href="/sunnydale/logout" role="button">Sign out</a>
       <% } else { %>
       <!-- Sign in button -->

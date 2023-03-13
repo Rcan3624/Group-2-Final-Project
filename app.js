@@ -95,6 +95,7 @@ app.get('/sunnydale/create/:id', (req, res)=>{
       console.log(err);
   });
 });
+
 app.get('/sunnydale/create', (req, res)=>{
   Course.find()
     .then((result)=>{
@@ -106,13 +107,67 @@ app.get('/sunnydale/create', (req, res)=>{
   
 });
 
-
-
-
-
 app.get('/sunnydale/create', (req, res)=>{
   res.render('create', {title: 'Create'})
 });
+
+app.post('/create', (req, res) => {
+  const course = new Course(req.body);
+
+  course.save()
+  .then((result)=>{
+    res.redirect('/sunnydale/create')
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+})
+
+//Update
+
+app.get('/sunnydale/update', (req, res)=>{
+  res.render('update', {title: 'Create'})
+});
+
+
+app.get('/sunnydale/update/:id', (req, res)=>{
+  const id = req.params.id;
+  Course.findByIdAndUpdate(id)
+  
+  .then((result) =>{
+      res.render('update', { courses: result, course: result, title:'Update'})
+  })
+  .catch((err)=>{
+      console.log(err);
+  });
+});
+
+app.get('/sunnydale/update', (req, res)=>{
+  Course.find()
+    .then((result)=>{
+      res.render('update', {title: 'Update', courses: result, course: result})
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  
+});
+
+
+app.post('/update', (req, res) => {
+  const course = new Course(req.body);
+
+  course.save()
+  .then((result)=>{
+    res.redirect('/sunnydale/create')
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+})
+
+//Course List
+
 
 app.get('/sunnydale/course_list', (req, res)=>{
   Course.find()
@@ -129,17 +184,9 @@ app.get('/sunnydale/course_list', (req, res)=>{
   res.render('course_list', {title: 'Course List'})
 });
 
-app.post('/create', (req, res) => {
-  const course = new Course(req.body);
 
-  course.save()
-  .then((result)=>{
-    res.redirect('/sunnydale/create')
-  })
-  .catch((err)=>{
-    console.log(err);
-  })
-})
+///Delete
+
 
 app.delete('/create/:id', (req, res)=>{
   const id = req.params.id;
