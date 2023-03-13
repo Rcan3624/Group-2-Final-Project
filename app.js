@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-//const Enroll = require('./models/enrollment');
+const Enroll = require('./models/enroll');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const {requireAuth, checkUser} = require('./middleware/authmiddleware');
@@ -75,6 +75,8 @@ app.get('/sunnydale/admission', (req, res) => {
   res.render('admission', { title: 'Admission' })
 });
 
+
+
 //Course Routes
 
 app.get('/sunnydale/create', (req, res)=>{
@@ -88,7 +90,7 @@ app.get('/sunnydale/create', (req, res)=>{
   
 });
 
-app.get('/sunnydale/create', (req, res)=>{
+app.get('/sunnydale/create',  requireAuth, (req, res)=>{
   res.render('create', {title: 'Create'})
 });
 
@@ -103,7 +105,7 @@ app.get('/sunnydale/course_list', (req, res)=>{
   
 });
 
-app.get('/sunnydale/course_list', (req, res)=>{
+app.get('/sunnydale/course_list',  requireAuth, (req, res)=>{
   res.render('course_list', {title: 'Course List'})
 });
 
@@ -120,8 +122,82 @@ app.post('/create', (req, res) => {
 })
 
 
-// //course display
-// app.use('/sunnydale', courseRoutes);
+//Update
+
+app.get('/sunnydale/update',  requireAuth, (req, res)=>{
+  res.render('update', {title: 'Create'})
+});
+
+
+app.get('/sunnydale/update/:id', (req, res)=>{
+  const id = req.params.id;
+  Course.findByIdAndUpdate(id)
+  
+  .then((result) =>{
+      res.render('update', { courses: result, course: result, title:'Update'})
+  })
+  .catch((err)=>{
+      console.log(err);
+  });
+});
+
+app.get('/sunnydale/update', (req, res)=>{
+  Course.findByIdAndUpdate(id)
+    .then((result)=>{
+      res.render('update', {title: 'Update', courses: result, course: result})
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  
+});
+
+
+app.post('/update', (req, res) => {
+  const course = new Course(req.body);
+
+  course.save()
+  .then((result)=>{
+    res.redirect('/sunnydale/create')
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+})
+
+////Details
+
+app.get('/sunnydale/details/:id', (req, res)=>{
+  const id = req.params.id;
+  Course.findById(id)
+  
+  .then((result) =>{
+      res.render('details', { courses: result, course: result, title:'Details'})
+  })
+  .catch((err)=>{
+      console.log(err);
+  });
+});
+
+app.get('/sunnydale/details', (req, res) => {
+  res.render('details', { title: 'Details' })
+});
+
+///Delete
+
+
+app.delete('/create/:id', (req, res)=>{
+  const id = req.params.id;
+
+  Course.findByIdAndDelete(id)
+  .then(result => {
+      res.json({redirect: '/sunnydale/create/'})
+  })
+  .catch(err => {
+      console.log(err)
+  })
+})
+
 
 // 404 page
 app.use((req, res) => {

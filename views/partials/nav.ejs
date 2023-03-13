@@ -34,17 +34,14 @@
         <a class="nav-link" href="/sunnydale/degrees">Degrees</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/sunnydale/course_list">Available Courses</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="/sunnydale/faq">FAQ</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/sunnydale/create">Create Courses</a>
-      </li>
+      
     </ul>
 
     <% if (user) { %> Welcome, <%= user.email %>
+        <a class="nav-link" href="/sunnydale/create">Create Courses</a>
+        <a class="nav-link" href="/sunnydale/course_list">Available Courses</a>
     <a
       class="btn btn-primary my-2 my-sm-0"
       href="/sunnydale/logout"
