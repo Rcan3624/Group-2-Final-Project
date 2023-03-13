@@ -1,5 +1,5 @@
 <!-- Bootstrap navbar with collapsable menu toggler that activates for smaller browsers, includes logo -->
-<nav class="navbar navbar-expand-md navbar-light sticky-top mb-5">
+<nav class="navbar navbar-expand-xl navbar-light sticky-top mb-5">
   <a class="navbar-brand" href="/"
     ><img
       src="/logo.jpeg"
@@ -37,11 +37,16 @@
         <a class="nav-link" href="/sunnydale/faq">FAQ</a>
       </li>
       
+      <li class="nav-item">
+        <a class="nav-link" href="/sunnydale/create">Create Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sunnydale/course_list">Available Courses</a>
+      </li>
     </ul>
 
-    <% if (user) { %> Welcome, <%= user.email %>
-        <a class="nav-link" href="/sunnydale/create">Create Courses</a>
-        <a class="nav-link" href="/sunnydale/course_list">Available Courses</a>
+    <% if (user) { %> Welcome, <%= user.email %> 
+
     <a
       class="btn btn-primary my-2 my-sm-0"
       href="/sunnydale/logout"
