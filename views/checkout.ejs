@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Read head.ejs file from partials folder-->
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body class="body">
+    <nav>
+      <%- include("./partials/nav.ejs") %>
+    </nav>
+
+    
+
+    <!-- Checkout Form -->
+    <div class="row">
+      <div class="col-75">
+        <div class="container">
+          <form name="billingInfo" action="/sunnydale/confirm">
+            
+            <div class="row">
+              <div class="col-50">
+
+                <h3 id="billing">Billing Address</h3>
+                <label for="fname"><i class="fa fa-user"></i> First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Enter first name" required>
+                <label for="lname"><i class="fa fa-user"></i> Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Enter last name" required>
+                <label for="address"><i class="fa fa-user"></i> Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter address" required>
+                <label for="city"><i class="fa fa-institution"></i> City</label>
+                <input type="text" id="city" name="city" placeholder="Enter where you live" required>
+                <label for="zip"><i class="fa fa-institution"></i> Zip</label>
+                <input type="text" id="zip" name="zip" placeholder="Enter your zip" >
+            <input id="submitInfo" type="submit" value="Purchase" class="formButton">
+          </form>
+        </div>
+      </div>
+    
+      <!-- <div class="col-25">
+        <div class="container">
+          <h4>Cart
+            <span class="price" style="color:black">
+              <i class="fa fa-shopping-cart"></i>
+              <b>4</b>
+            </span>
+          </h4>
+          <p id="item1"><a href="#">Product 1</a> <span class="price">$15</span></p>
+          <p id="item2"><a href="#">Product 2</a> <span class="price">$5</span></p>
+          <p id="item3"><a href="#">Product 3</a> <span class="price">$8</span></p>
+          <p id="item4"><a href="#">Product 4</a> <span
+             class="price">$2</span></p>
+          <hr>
+          <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+        </div>
+      </div>
+    </div>   -->
+  </body>
+  <div class="footer">
+    <footer><%- include("./partials/footer.ejs") %></footer>
+  </div>
+  <!-- End of checkoutform -->
+
+
+  <!-- Layout code since implementing this into the css file would affect the other pages -->
+  <!-- Unfortunatley this will make editing this page a pain in @$$ -->
+  <style>
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+  
+  .col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+  }
+  
+  .col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+  
+  .col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+  }
+  
+  .col-25,
+  .col-50,
+  .col-75 {
+    padding: 0 16px;
+  }
+  
+  .container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+  
+  input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  
+  
+  
+  .formButton {
+    background-color: #007bff;
+    color: white;
+    padding: 5px;
+    margin: 10px 0;
+    border: none;
+    width: 15%;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+  @media (max-width: 800px) {
+    .row {
+      flex-direction: column-reverse;
+    }
+    .col-25 {
+      margin-bottom: 20px;
+    }
+  }
+  </style>
+
+ 
+  
+</html>

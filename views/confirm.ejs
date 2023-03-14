@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Read head.ejs file from partials folder-->
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body class="body">
+    <!-- Read nav.ejs file from partials folder-->
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="container">
+      <div class="media">
+        <div class="media-body">
+          <h3 class="mt-5">
+            <h2>Thank you for your purchase</h2>
+            <p>You’ve successfully enrolled in your course(s)</p>
+            <p>Enjoy the last few moments of your freedom</p>
+            <img
+            class="pics float-right"
+            src="/images/celebrate.png"
+            alt="Student"
+          />
+        </div>
+      </div>
+     
+    </div>
+    <footer><%- include("./partials/footer.ejs") %></footer>
+  </body>
+</html>

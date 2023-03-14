@@ -75,6 +75,16 @@ app.get('/sunnydale/admission', (req, res) => {
   res.render('admission', { title: 'Admission' })
 });
 
+// Checkout Page
+app.get('/sunnydale/checkout', (req, res) => {
+  res.render('checkout', { title: 'Checkout'})
+})
+
+// Confirm Page
+app.get('/sunnydale/confirm', (req, res) => {
+  res.render('confirm', { title: 'Confirm' })
+})
+
 
 
 //Course Routes
